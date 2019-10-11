@@ -1,8 +1,16 @@
 #include <memory>
 
+class Entity;
+
 class Core
 {
 private:
-	std::shared_ptr<Environment> environment;
-	std::vector<std::vector<std::shared_ptr<Entity>>
+	std::list<std::shared_ptr<Entity>>;
+	bool running;
+
+public:
+	std::shared_ptr<Core> initialize();
+	void start();
+	void stop();
+	std::shared_ptr<Entity> addEntity();
 }

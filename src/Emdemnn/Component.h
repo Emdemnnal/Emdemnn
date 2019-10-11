@@ -1,5 +1,8 @@
 #include <memory>
 
+class Core;
+class Entity;
+
 class Component
 {
 private:
