@@ -13,7 +13,7 @@ int main()
   std::shared_ptr<Entity> entity = core->addEntity();
 
   // Add a very simple component to it.
-  std::shared_ptr<TestScreen> testScreen = entity->addComponent<TestScreen>();
+  std::weak_ptr<TestScreen> testScreen = entity->addComponent<TestScreen>();
 
   // Start the engine's main loop.
   core->start();
