@@ -20,12 +20,3 @@ void Component::onDisplay()
 
 }
 
-std::shared_ptr<Entity> Component::getEntity()
-{
-
-}
-
-std::shared_ptr<Core> Component::getCore()
-{
-
-}

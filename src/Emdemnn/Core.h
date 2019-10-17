@@ -1,11 +1,12 @@
 #include <memory>
+#include <list>
 
 class Entity;
 
 class Core
 {
 private:
-	std::list<std::shared_ptr<Entity>>;
+	std::list<std::shared_ptr<Entity>> entity;
 	bool running;
 
 public:
@@ -13,4 +14,4 @@ public:
 	void start();
 	void stop();
 	std::shared_ptr<Entity> addEntity();
-}
+};
