@@ -15,6 +15,8 @@ private:
   void display();
 
 public:
+  std::shared_ptr<Core> getCore();
+
   template <typename T>
   std::shared_ptr<T>addComponent()
   {

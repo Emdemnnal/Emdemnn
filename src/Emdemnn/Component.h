@@ -17,6 +17,10 @@ private:
   void onBegin();
   void onTick();
   virtual void onDisplay();
+
+public:
+  std::shared_ptr<Entity> getEntity();
+  std::shared_ptr<Core> getCore();
 };
 
 #endif

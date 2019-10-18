@@ -14,3 +14,7 @@ void Entity::display()
   }
 }
 
+std::shared_ptr<Core> Entity::getCore()
+{
+  return core.lock();
+}
