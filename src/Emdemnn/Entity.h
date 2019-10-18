@@ -46,7 +46,7 @@ public:
   std::shared_ptr<T>addComponent(A a, B b, C c)
   {
     
-    std::shared_ptr<T> t = std::make_shared<T>(a, b);
+    std::shared_ptr<T> t = std::make_shared<T>(a, b, c);
     components.push_back(t);
 
     return t;
