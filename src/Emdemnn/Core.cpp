@@ -14,7 +14,7 @@ void Core::start()
   running = true;
   while(running != false)
   {
-    for (std::list<std::shared_ptr<Entity>>::iterator it = entity.begin(); it != entity.end(); ++it)
+    for (std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); ++it)
     {
       (*it) -> display(); 
     }
@@ -29,7 +29,7 @@ void Core::stop()
 std::shared_ptr<Entity> Core::addEntity()
 {
   std::shared_ptr<Entity> entity = std::make_shared<Entity>();
-  this->entity.push_back(entity);
+  this->entities.push_back(entity);
 
   return entity;
 }
