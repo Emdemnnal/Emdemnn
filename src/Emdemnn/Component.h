@@ -10,12 +10,13 @@ class Entity;
 class Component
 {
 private:
-	std::weak_ptr<Entity> entity;
+  friend class ::Entity;
+  std::weak_ptr<Entity> entity;
 	
-	void onInit();
-	void onBegin();
-	void onTick();
-	virtual void onDisplay();
+  void onInit();
+  void onBegin();
+  void onTick();
+  virtual void onDisplay();
 };
 
 #endif

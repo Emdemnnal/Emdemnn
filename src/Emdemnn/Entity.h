@@ -7,6 +7,7 @@ class Core;
 class Entity
 {
 private:
+  friend class ::Core;
   std::list<std::shared_ptr<Component>> components;
   std::weak_ptr<Core> core;
   
