@@ -1,3 +1,7 @@
+#ifndef _COMPONENT_H
+#define _COMPONENT_H
+
+#include <iostream>
 #include <memory>
 
 class Core;
@@ -11,5 +15,7 @@ private:
 	void onInit();
 	void onBegin();
 	void onTick();
-	void onDisplay();
+	virtual void onDisplay();
 };
+
+#endif

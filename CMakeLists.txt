@@ -16,5 +16,7 @@ add_library(Emdemnn
 
 add_executable(sandbox
   src/sandbox/main.cpp
+  src/sandbox/TestScreen.h
+  src/sandbox/TestScreen.cpp
 )
 target_link_libraries(sandbox Emdemnn)

@@ -26,19 +26,30 @@ public:
   template <typename T, typename A>
   std::shared_ptr<T>addComponent(A a)
   {
-    return std::shared_ptr<T>();
+    std::shared_ptr<T> t = std::make_shared<T>(a);
+    components.push_back(t);
+
+    return t;
   }
 
   template <typename T, typename A, typename B>
   std::shared_ptr<T>addComponent(A a, B b)
-  {
-    return std::shared_ptr<T>();
+  {   
+    std::shared_ptr<T> t = std::make_shared<T>(a, b);
+    components.push_back(t);
+
+    return t;
   }
 
   template <typename T, typename A, typename B, typename C>
   std::shared_ptr<T>addComponent(A a, B b, C c)
   {
-    return std::shared_ptr<T>();
+    
+    std::shared_ptr<T> t = std::make_shared<T>(a, b);
+    components.push_back(t);
+
+    return t;
+    //return std::shared_ptr<T>();
   }
 };
 
