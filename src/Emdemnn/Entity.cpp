@@ -10,6 +10,7 @@ void Entity::display()
 {
   for (std::list<std::shared_ptr<Component>>::iterator it = components.begin(); it != components.end(); ++it)
   {
+    (*it) -> onInit();
     (*it) -> onDisplay(); 
   }
 }

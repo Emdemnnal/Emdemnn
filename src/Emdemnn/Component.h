@@ -13,7 +13,7 @@ private:
   friend class ::Entity;
   std::weak_ptr<Entity> entity;
 	
-  void onInit();
+  virtual void onInit();
   void onBegin();
   void onTick();
   virtual void onDisplay();

@@ -12,7 +12,13 @@ add_library(Emdemnn
   src/Emdemnn/Component.cpp
   src/Emdemnn/Entity.h
   src/Emdemnn/Entity.cpp
+  src/Emdemnn/TriangleRenderer.h
+  src/Emdemnn/TriangleRenderer.cpp
+  src/Emdemnn/Exception.h
+  src/Emdemnn/Exception.cpp
 )
+
+target_link_libraries(Emdemnn SDL2 opengl32 glew32)
 
 add_executable(sandbox
   src/sandbox/main.cpp
