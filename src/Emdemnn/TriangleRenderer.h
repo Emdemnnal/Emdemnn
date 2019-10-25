@@ -13,7 +13,6 @@ class TriangleRenderer : public Component
 private:
   SDL_Window *window;
   GLuint programId;
-  GLuint vboId;
   GLuint vaoId;
 
   bool quit;

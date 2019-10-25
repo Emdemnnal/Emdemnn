@@ -2,7 +2,8 @@
 
 TriangleRenderer::~TriangleRenderer()
 {
- 
+  SDL_DestroyWindow(window);
+  SDL_Quit();
 }
 
 void TriangleRenderer::onInit()
@@ -92,7 +93,7 @@ void TriangleRenderer::onInit()
   // Reset the state
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-  GLuint vaoId = 0;
+  vaoId = 0;
 
   // Create a new VAO on the GPU and bind it
   glGenVertexArrays(1, &vaoId);
@@ -140,7 +141,7 @@ void TriangleRenderer::onInit()
     throw std::exception();
   }
 
-  GLuint programId = glCreateProgram();
+  programId = glCreateProgram();
   glAttachShader(programId, vertexShaderId);
   glAttachShader(programId, fragmentShaderId);
   glBindAttribLocation(programId, 0, "in_Position");
@@ -165,7 +166,10 @@ void TriangleRenderer::onInit()
   glDeleteShader(fragmentShaderId);
 
   quit = false;
+}
 
+void TriangleRenderer::onDisplay()
+{
   while(!quit)
   {
     SDL_Event event = {0};
@@ -181,22 +185,14 @@ void TriangleRenderer::onInit()
     glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glBindVertexArray(vaoId);
     glUseProgram(programId);
-   
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glBindVertexArray(vaoId);
 
-    SDL_GL_SwapWindow(window);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
 
     glBindVertexArray(0);
     glUseProgram(0);
+
+    SDL_GL_SwapWindow(window);
   }
-
-  SDL_DestroyWindow(window);
-  SDL_Quit();
-}
-
-void TriangleRenderer::onDisplay()
-{
-  
 }
