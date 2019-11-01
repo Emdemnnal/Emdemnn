@@ -10,6 +10,7 @@ std::shared_ptr<Core> Core::initialize()
 {
   std::shared_ptr<Core> core = std::make_shared<Core>();
   core->running = false;
+  core->self = core;
   
   // Create a window output for the engine.  
   if(SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -74,7 +75,10 @@ void Core::stop()
 std::shared_ptr<Entity> Core::addEntity()
 {
   std::shared_ptr<Entity> entity = std::make_shared<Entity>();
-  this->entities.push_back(entity);
+  entities.push_back(entity);
+  
+  entity->self = entity;
+  entity->core = self;
 
   return entity;
 }

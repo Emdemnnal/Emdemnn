@@ -7,9 +7,12 @@ class Core;
 class Entity
 {
 private:
+  // Allows Entity class to access variable from Core.
   friend class ::Core;
+  // List of components that entity holds.
   std::list<std::shared_ptr<Component>> components;
   std::weak_ptr<Core> core;
+  std::weak_ptr<Entity> self;
   
   void tick();
   void display();
@@ -22,7 +25,8 @@ public:
   {
     std::shared_ptr<T> t = std::make_shared<T>();
     components.push_back(t);
-
+    t->entity = self;
+	
     return t;
   }
 
@@ -31,6 +35,7 @@ public:
   {
     std::shared_ptr<T> t = std::make_shared<T>(a);
     components.push_back(t);
+	t->entity = self;
 
     return t;
   }
@@ -40,6 +45,7 @@ public:
   {   
     std::shared_ptr<T> t = std::make_shared<T>(a, b);
     components.push_back(t);
+	t->entity = self;
 
     return t;
   }
@@ -50,6 +56,7 @@ public:
     
     std::shared_ptr<T> t = std::make_shared<T>(a, b, c);
     components.push_back(t);
+	t->entity = self;
 
     return t;
     //return std::shared_ptr<T>();
