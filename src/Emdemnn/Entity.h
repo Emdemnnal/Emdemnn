@@ -1,5 +1,6 @@
 #include <memory>
 #include <list>
+#include "Exception.h"
 
 class Component;
 class Core;
@@ -13,19 +14,36 @@ private:
   std::list<std::shared_ptr<Component>> components;
   std::weak_ptr<Core> core;
   std::weak_ptr<Entity> self;
+  std::weak_ptr<Transform> transform;
   
   void tick();
   void display();
 
 public:
   std::shared_ptr<Core> getCore();
+  
+  template <typename T>
+  std::shared_ptr<T> getComponent()
+  {
+	  for (auto it = components.begin(); it != components.end(); ++it)
+	  {
+		  std::shared_ptr<T> t = std::dynamic_pointer_cast<T>(*it);
+		  return t;
+	  }
+	   
+	  throw rend::Exception("Doesn't Exist");
+  }
+  
+  std::shared_ptr<Transform> getTransform();
 
   template <typename T>
   std::shared_ptr<T>addComponent()
   {
     std::shared_ptr<T> t = std::make_shared<T>();
     components.push_back(t);
-    t->entity = self;
+	
+	// Component knows what entity its attached to.
+    t->entity = self; 
 	
     return t;
   }
@@ -35,6 +53,8 @@ public:
   {
     std::shared_ptr<T> t = std::make_shared<T>(a);
     components.push_back(t);
+	
+	// Component knows what entity its attached to.
 	t->entity = self;
 
     return t;
@@ -45,6 +65,8 @@ public:
   {   
     std::shared_ptr<T> t = std::make_shared<T>(a, b);
     components.push_back(t);
+	
+	// Component knows what entity its attached to.
 	t->entity = self;
 
     return t;
@@ -56,6 +78,8 @@ public:
     
     std::shared_ptr<T> t = std::make_shared<T>(a, b, c);
     components.push_back(t);
+	
+	// Component knows what entity its attached to.
 	t->entity = self;
 
     return t;

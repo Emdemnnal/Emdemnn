@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 
-#include <exception>
+#include "Exception.h"
 
 #include "Component.h"
 

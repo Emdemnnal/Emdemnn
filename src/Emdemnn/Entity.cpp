@@ -19,3 +19,8 @@ std::shared_ptr<Core> Entity::getCore()
 {
   return core.lock();
 }
+
+std::shared_ptr<Transform> Entity::getTransform()
+{
+	
+}

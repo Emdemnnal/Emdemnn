@@ -6,6 +6,7 @@
 
 class Core;
 class Entity;
+class Transform;
 
 class Component
 {
@@ -21,6 +22,7 @@ private:
 public:
   std::shared_ptr<Entity> getEntity();
   std::shared_ptr<Core> getCore();
+  std::shared_ptr<Transform> getTransform();
 };
 
 #endif
