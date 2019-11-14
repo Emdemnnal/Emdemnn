@@ -4,6 +4,7 @@
 
 class Component;
 class Core;
+class Transform;
 
 class Entity
 {

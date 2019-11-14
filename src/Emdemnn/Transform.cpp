@@ -1,16 +1,16 @@
 #include "Transform.h"
 
-void Transform::setPosition(vec3 position)
+void Transform::setPosition(glm::vec3 position)
 {
   
 }
 
-vec3 Transform::getPosition()
+glm::vec3 Transform::getPosition()
 {
   
 }
 
-mat4 Transform::getModel()
+glm::mat4 Transform::getModel()
 {
   
 }

@@ -5,12 +5,12 @@
 class Transform : public Component
 {
 private:
-  vec3 position;
-  vec3 rotation;
-  vec3 scale;
+  glm::vec3 position;
+  glm::vec3 rotation;
+  glm::vec3 scale;
   
 public:
-  void setPosition(vec3 position);
-  vec3 getPosition();
-  mat4 getModel();
-}
+  void setPosition(glm::vec3 position);
+  glm::vec3 getPosition();
+  glm::mat4 getModel();
+};

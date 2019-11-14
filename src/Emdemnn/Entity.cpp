@@ -3,14 +3,16 @@
 
 void Entity::tick()
 {
-
+  for (std::list<std::shared_ptr<Component>>::iterator it = components.begin(); it != components.end(); ++it)
+  {
+    (*it)->onInit();
+  }
 }
 
 void Entity::display()
 {
   for (std::list<std::shared_ptr<Component>>::iterator it = components.begin(); it != components.end(); ++it)
   {
-    (*it)->onInit();
     (*it)->onDisplay(); 
   }
 }
@@ -22,5 +24,5 @@ std::shared_ptr<Core> Entity::getCore()
 
 std::shared_ptr<Transform> Entity::getTransform()
 {
-	
+  return transform.lock();
 }

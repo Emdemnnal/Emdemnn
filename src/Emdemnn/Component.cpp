@@ -3,7 +3,7 @@
 
 void Component::onInit()
 {
-
+  std::cout << "Hello I am Init!" << std::endl;
 }
 
 void Component::onBegin()
