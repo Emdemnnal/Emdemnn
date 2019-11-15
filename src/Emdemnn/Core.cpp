@@ -3,6 +3,9 @@
 
 #include <GL/glew.h>
 
+namespace Emdemnn
+{
+
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
@@ -81,4 +84,5 @@ std::shared_ptr<Entity> Core::addEntity()
   entity->core = self;
 
   return entity;
+}
 }

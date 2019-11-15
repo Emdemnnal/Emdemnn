@@ -1,5 +1,7 @@
 #include "TriangleRenderer.h"
 
+namespace Emdemnn
+{
 TriangleRenderer::~TriangleRenderer()
 {
   SDL_DestroyWindow(window);
@@ -43,7 +45,7 @@ void TriangleRenderer::onInit()
   "}" \
   "";
 
-  window = SDL_CreateWindow("Traingle Renderer",
+  window = SDL_CreateWindow("Triangle Renderer",
   SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
   WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
   
@@ -195,4 +197,5 @@ void TriangleRenderer::onDisplay()
 
     SDL_GL_SwapWindow(window);
   }
+}
 }

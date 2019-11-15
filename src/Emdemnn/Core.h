@@ -5,6 +5,8 @@
 
 #include <exception>
 
+namespace Emdemnn
+{
 class Entity;
 
 class Core
@@ -22,3 +24,4 @@ public:
   void stop();
   std::shared_ptr<Entity> addEntity();
 };
+}

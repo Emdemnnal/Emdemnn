@@ -1,6 +1,8 @@
 #include "Component.h"
 #include "Entity.h"
 
+namespace Emdemnn
+{
 void Component::onInit()
 {
   std::cout << "Hello I am Init!" << std::endl;
@@ -33,5 +35,6 @@ std::shared_ptr<Core> Component::getCore()
 
 std::shared_ptr<Transform> Component::getTransform()
 {
-  
+  return getEntity()->getTransform();
+}
 }

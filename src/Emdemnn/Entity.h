@@ -2,6 +2,8 @@
 #include <list>
 #include "Exception.h"
 
+namespace Emdemnn
+{
 class Component;
 class Core;
 class Transform;
@@ -10,7 +12,7 @@ class Entity
 {
 private:
   // Allows Entity class to access variable from Core.
-  friend class ::Core;
+  friend class Emdemnn::Core;
   // List of components that entity holds.
   std::list<std::shared_ptr<Component>> components;
   std::weak_ptr<Core> core;
@@ -87,4 +89,4 @@ public:
     //return std::shared_ptr<T>();
   }
 };
-
+}

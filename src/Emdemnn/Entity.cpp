@@ -1,6 +1,8 @@
 #include "Entity.h"
 #include "Component.h"
 
+namespace Emdemnn
+{
 void Entity::tick()
 {
   for (std::list<std::shared_ptr<Component>>::iterator it = components.begin(); it != components.end(); ++it)
@@ -25,4 +27,5 @@ std::shared_ptr<Core> Entity::getCore()
 std::shared_ptr<Transform> Entity::getTransform()
 {
   return transform.lock();
+}
 }

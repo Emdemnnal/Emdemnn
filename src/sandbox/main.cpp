@@ -5,6 +5,8 @@
 #include <iostream>
 #include <memory>
 
+using namespace Emdemnn;
+
 int main()
 {
   // Initialize our engine.

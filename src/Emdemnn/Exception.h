@@ -1,7 +1,7 @@
 #include <exception>
 #include <string>
 
-namespace rend
+namespace Emdemnn
 {
 
 struct Exception : public std::exception
@@ -14,5 +14,7 @@ private:
   std::string message;
 
 };
+
+void pollForError();
 
 }

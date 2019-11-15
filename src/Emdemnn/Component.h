@@ -4,6 +4,9 @@
 #include <iostream>
 #include <memory>
 
+namespace Emdemnn
+{
+
 class Core;
 class Entity;
 class Transform;
@@ -11,7 +14,7 @@ class Transform;
 class Component
 {
 private:
-  friend class ::Entity;
+  friend class Emdemnn::Entity;
   std::weak_ptr<Entity> entity;
 	
   virtual void onInit();
@@ -24,5 +27,5 @@ public:
   std::shared_ptr<Core> getCore();
   std::shared_ptr<Transform> getTransform();
 };
-
+}
 #endif
