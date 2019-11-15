@@ -1,8 +1,6 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 
-#include "Exception.h"
-
 #include "Component.h"
 
 #define WINDOW_WIDTH 640
@@ -10,20 +8,22 @@
 
 namespace Emdemnn
 {
-class TriangleRenderer : public Component
+class MeshRenderer : public Component
 {
 private:
   SDL_Window *window;
   GLuint programId;
   GLuint vaoId;
-
   bool quit;
   
   void onDisplay();
  
 public:
-  ~TriangleRenderer();
+  ~MeshRenderer();
   void onInit();
+  //void setMesh(std::weak_ptr<Mesh> mesh);
+  //std::shared_ptr<Mesh> getMesh();
+  //std::shared_ptr<Material> getMaterial();
   
 };
 }

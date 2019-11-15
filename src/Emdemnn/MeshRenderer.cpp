@@ -1,14 +1,15 @@
-#include "TriangleRenderer.h"
+#include "MeshRenderer.h"
+#include "Exception.h"
 
 namespace Emdemnn
 {
-TriangleRenderer::~TriangleRenderer()
+MeshRenderer::~MeshRenderer()
 {
   SDL_DestroyWindow(window);
   SDL_Quit();
 }
 
-void TriangleRenderer::onInit()
+void MeshRenderer::onInit()
 {
   const GLfloat positions[] = 
   {
@@ -170,7 +171,7 @@ void TriangleRenderer::onInit()
   quit = false;
 }
 
-void TriangleRenderer::onDisplay()
+void MeshRenderer::onDisplay()
 {
   while(!quit)
   {

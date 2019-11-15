@@ -6,7 +6,7 @@
 #include "Entity.h"
 #include "Component.h"
 
-#include "TriangleRenderer.h"
+#include "MeshRenderer.h"
 #include "Exception.h"
 
 #endif

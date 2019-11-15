@@ -1,6 +1,5 @@
 #include <memory>
 #include <list>
-#include "Exception.h"
 
 namespace Emdemnn
 {
@@ -34,7 +33,7 @@ public:
 		  return t;
 	  }
 	   
-	  throw rend::Exception("Doesn't Exist");
+	  throw Exception("Doesn't Exist");
   }
   
   std::shared_ptr<Transform> getTransform();
