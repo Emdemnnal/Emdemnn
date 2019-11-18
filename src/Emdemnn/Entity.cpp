@@ -5,15 +5,15 @@ namespace Emdemnn
 {
 void Entity::tick()
 {
-  for (std::list<std::shared_ptr<Component>>::iterator it = components.begin(); it != components.end(); ++it)
+  for(std::list<std::shared_ptr<Component>>::iterator it = components.begin(); it != components.end(); it++)
   {
-    (*it)->onInit();
+    (*it)->onTick();
   }
 }
 
 void Entity::display()
 {
-  for (std::list<std::shared_ptr<Component>>::iterator it = components.begin(); it != components.end(); ++it)
+  for(std::list<std::shared_ptr<Component>>::iterator it = components.begin(); it != components.end(); it++)
   {
     (*it)->onDisplay(); 
   }

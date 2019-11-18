@@ -15,11 +15,11 @@ class Component
 {
 private:
   friend class Emdemnn::Entity;
+  
   std::weak_ptr<Entity> entity;
 	
   virtual void onInit();
-  void onBegin();
-  void onTick();
+  virtual void onTick();
   virtual void onDisplay();
 
 public:

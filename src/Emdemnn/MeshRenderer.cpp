@@ -173,17 +173,17 @@ void MeshRenderer::onInit()
 
 void MeshRenderer::onDisplay()
 {
-  while(!quit)
-  {
-    SDL_Event event = {0};
+  //while(!quit)
+  //{
+   // SDL_Event event = {0};
 
-    while(SDL_PollEvent(&event))
-    {
-      if(event.type == SDL_QUIT)
-      {
-        quit = true;
-      }
-    }
+   // while(SDL_PollEvent(&event))
+  //  {
+   //   if(event.type == SDL_QUIT)
+    //  {
+   //     quit = true;
+   //   }
+   // }
 
     glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -197,6 +197,6 @@ void MeshRenderer::onDisplay()
     glUseProgram(0);
 
     SDL_GL_SwapWindow(window);
-  }
+  //}
 }
 }

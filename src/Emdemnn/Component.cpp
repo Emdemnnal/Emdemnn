@@ -8,14 +8,9 @@ void Component::onInit()
   std::cout << "Hello I am Init!" << std::endl;
 }
 
-void Component::onBegin()
-{
-
-}
-
 void Component::onTick()
 {
-
+  std::cout << "Hello I am Ticking!" << std::endl;
 }
 
 void Component::onDisplay()

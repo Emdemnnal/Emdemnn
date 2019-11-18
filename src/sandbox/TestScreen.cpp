@@ -4,6 +4,6 @@ namespace Emdemnn
 {
 void TestScreen::onDisplay()
 {
-  std::cout << "Hello I am Test Update!" << std::endl;
+  std::cout << "Hello I am TestScreen Display!" << std::endl;
 }
 }

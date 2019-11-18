@@ -16,6 +16,7 @@ private:
   std::list<std::shared_ptr<Entity>> entities;
   bool running;
   SDL_Window *window;
+  
   std::weak_ptr<Core> self;
 
 public:

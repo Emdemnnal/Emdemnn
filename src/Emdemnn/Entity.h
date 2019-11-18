@@ -14,6 +14,7 @@ private:
   friend class Emdemnn::Core;
   // List of components that entity holds.
   std::list<std::shared_ptr<Component>> components;
+  
   std::weak_ptr<Core> core;
   std::weak_ptr<Entity> self;
   std::weak_ptr<Transform> transform;
@@ -42,10 +43,13 @@ public:
   std::shared_ptr<T>addComponent()
   {
     std::shared_ptr<T> t = std::make_shared<T>();
-    components.push_back(t);
 	
+	// Add it to the list of components on that entity.
+    components.push_back(t);
 	// Component knows what entity its attached to.
     t->entity = self; 
+	// Call Initialize function on added component.
+	t->onInit();
 	
     return t;
   }
@@ -54,10 +58,13 @@ public:
   std::shared_ptr<T>addComponent(A a)
   {
     std::shared_ptr<T> t = std::make_shared<T>(a);
+
+	// Add it to the list of components on that entity.
     components.push_back(t);
-	
 	// Component knows what entity its attached to.
-	t->entity = self;
+    t->entity = self; 
+		// Call Initialize function on added component.
+	t->onInit(a);
 
     return t;
   }
@@ -66,24 +73,29 @@ public:
   std::shared_ptr<T>addComponent(A a, B b)
   {   
     std::shared_ptr<T> t = std::make_shared<T>(a, b);
-    components.push_back(t);
 	
+	// Add it to the list of components on that entity.
+    components.push_back(t);
 	// Component knows what entity its attached to.
-	t->entity = self;
-
+    t->entity = self; 
+		// Call Initialize function on added component.
+	t->onInit(a, b);
+	
     return t;
   }
 
   template <typename T, typename A, typename B, typename C>
   std::shared_ptr<T>addComponent(A a, B b, C c)
   {
-    
     std::shared_ptr<T> t = std::make_shared<T>(a, b, c);
-    components.push_back(t);
 	
+	// Add it to the list of components on that entity.
+    components.push_back(t);
 	// Component knows what entity its attached to.
-	t->entity = self;
-
+    t->entity = self; 
+		// Call Initialize function on added component.
+	t->onInit(a, b, c);
+	
     return t;
     //return std::shared_ptr<T>();
   }

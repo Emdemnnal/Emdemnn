@@ -11,8 +11,11 @@ namespace Emdemnn
 
 std::shared_ptr<Core> Core::initialize()
 {
+  // Auto create object on use.
   std::shared_ptr<Core> core = std::make_shared<Core>();
+  
   core->running = false;
+  // Smart pointer for referencing itself.
   core->self = core;
   
   // Create a window output for the engine.  
@@ -41,7 +44,7 @@ std::shared_ptr<Core> Core::initialize()
 void Core::start()
 {
   running = true;
-  while(running != false)
+  while(running)
   {
     SDL_Event event = {0};
 
@@ -56,12 +59,12 @@ void Core::start()
     glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    for (std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); ++it)
+    for(std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
     {
       (*it)->tick(); 
     }
 
-    for (std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); ++it)
+    for(std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
     {
       (*it)->display(); 
     }
@@ -77,7 +80,9 @@ void Core::stop()
 
 std::shared_ptr<Entity> Core::addEntity()
 {
+  // Auto create object on use.
   std::shared_ptr<Entity> entity = std::make_shared<Entity>();
+  // Add it to list of entities on Core.
   entities.push_back(entity);
   
   entity->self = entity;
