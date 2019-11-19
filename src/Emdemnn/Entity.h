@@ -31,41 +31,41 @@ public:
   template <typename T>
   std::shared_ptr<T> getComponent()
   {
-	  for (auto it = components.begin(); it != components.end(); ++it)
-	  {
-	    std::shared_ptr<T> t = std::dynamic_pointer_cast<T>(*it);
-		return t;
-	  }
-	   
-	  throw Exception("Doesn't Exist");
+    for (auto it = components.begin(); it != components.end(); ++it)
+    {
+      std::shared_ptr<T> t = std::dynamic_pointer_cast<T>(*it);
+    return t;
+    }
+     
+    throw Exception("Doesn't Exist");
   }
 
   template <typename T>
   std::shared_ptr<T>addComponent()
   {
     std::shared_ptr<T> t = std::make_shared<T>();
-	
-	// Add it to the list of components on that entity.
+  
+  // Add it to the list of components on that entity.
     components.push_back(t);
-	// Component knows what entity its attached to.
+  // Component knows what entity its attached to.
     t->entity = self; 
-	// Call Initialize function on added component.
-	t->onInit();
-	
+  // Call Initialize function on added component.
+  t->onInit();
+  
     return t;
   }
 
   template <typename T, typename A>
   std::shared_ptr<T>addComponent(A a)
   {
-    std::shared_ptr<T> t = std::make_shared<T>(a);
+    std::shared_ptr<T> t = std::make_shared<T>();
 
-	// Add it to the list of components on that entity.
+  // Add it to the list of components on that entity.
     components.push_back(t);
-	// Component knows what entity its attached to.
+  // Component knows what entity its attached to.
     t->entity = self; 
-		// Call Initialize function on added component.
-	t->onInit(a);
+    // Call Initialize function on added component.
+  t->onInit(a);
 
     return t;
   }
@@ -73,30 +73,30 @@ public:
   template <typename T, typename A, typename B>
   std::shared_ptr<T>addComponent(A a, B b)
   {   
-    std::shared_ptr<T> t = std::make_shared<T>(a, b);
-	
-	// Add it to the list of components on that entity.
+    std::shared_ptr<T> t = std::make_shared<T>();
+  
+  // Add it to the list of components on that entity.
     components.push_back(t);
-	// Component knows what entity its attached to.
+  // Component knows what entity its attached to.
     t->entity = self; 
-		// Call Initialize function on added component.
-	t->onInit(a, b);
-	
+    // Call Initialize function on added component.
+  t->onInit(a, b);
+  
     return t;
   }
 
   template <typename T, typename A, typename B, typename C>
   std::shared_ptr<T>addComponent(A a, B b, C c)
   {
-    std::shared_ptr<T> t = std::make_shared<T>(a, b, c);
-	
-	// Add it to the list of components on that entity.
+    std::shared_ptr<T> t = std::make_shared<T>();
+  
+  // Add it to the list of components on that entity.
     components.push_back(t);
-	// Component knows what entity its attached to.
+  // Component knows what entity its attached to.
     t->entity = self; 
-		// Call Initialize function on added component.
-	t->onInit(a, b, c);
-	
+    // Call Initialize function on added component.
+  t->onInit(a, b, c);
+  
     return t;
     //return std::shared_ptr<T>();
   }
