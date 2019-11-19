@@ -3,11 +3,6 @@
 
 namespace Emdemnn
 {
-MeshRenderer::~MeshRenderer()
-{
-  SDL_DestroyWindow(window);
-  SDL_Quit();
-}
 
 void MeshRenderer::onInit()
 {
@@ -45,20 +40,6 @@ void MeshRenderer::onInit()
   "  gl_FragColor = ex_Color;" \
   "}" \
   "";
-
-  window = SDL_CreateWindow("Triangle Renderer",
-  SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-  WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
-  
-  if(!SDL_GL_CreateContext(window))
-  {
-    throw std::exception();
-  }
-
-  if(glewInit() != GLEW_OK)
-  {
-    throw std::exception();
-  }
 
   GLuint positionsVboId = 0;
 
@@ -195,8 +176,6 @@ void MeshRenderer::onDisplay()
 
     glBindVertexArray(0);
     glUseProgram(0);
-
-    SDL_GL_SwapWindow(window);
   //}
 }
 }

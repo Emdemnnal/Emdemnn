@@ -1,3 +1,6 @@
+#ifndef EMDEMNN_EXCEPTION_H
+#define EMDEMNN_EXCEPTION_H
+
 #include <exception>
 #include <string>
 
@@ -15,6 +18,6 @@ private:
 
 };
 
-void pollForError();
-
 }
+
+#endif

@@ -41,6 +41,12 @@ std::shared_ptr<Core> Core::initialize()
   return core;
 }
 
+Core::~Core()
+{
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+}
+
 void Core::start()
 {
   running = true;

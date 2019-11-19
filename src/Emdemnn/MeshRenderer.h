@@ -11,7 +11,6 @@ namespace Emdemnn
 class MeshRenderer : public Component
 {
 private:
-  SDL_Window *window;
   GLuint programId;
   GLuint vaoId;
   bool quit;
@@ -19,8 +18,6 @@ private:
   void onDisplay();
  
 public:
-  ~MeshRenderer();
-  
   void onInit();
   //void setMesh(std::weak_ptr<Mesh> mesh);
   //std::shared_ptr<Mesh> getMesh();

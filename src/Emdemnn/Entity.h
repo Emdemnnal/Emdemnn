@@ -1,3 +1,5 @@
+#include "Exception.h"
+
 #include <memory>
 #include <list>
 

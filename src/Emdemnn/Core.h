@@ -21,6 +21,8 @@ private:
 
 public:
   static std::shared_ptr<Core> initialize();
+  ~Core();
+
   void start();
   void stop();
   std::shared_ptr<Entity> addEntity();
