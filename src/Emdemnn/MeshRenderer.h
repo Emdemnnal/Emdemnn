@@ -20,6 +20,7 @@ private:
  
 public:
   ~MeshRenderer();
+  
   void onInit();
   //void setMesh(std::weak_ptr<Mesh> mesh);
   //std::shared_ptr<Mesh> getMesh();

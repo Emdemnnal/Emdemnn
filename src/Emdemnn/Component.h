@@ -14,6 +14,7 @@ class Transform;
 class Component
 {
 private:
+  // Allows Entity class to access variables from Component.
   friend class Emdemnn::Entity;
   
   std::weak_ptr<Entity> entity;
