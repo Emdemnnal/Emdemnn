@@ -22,6 +22,10 @@ int main()
   // Start the engine's main loop.
   core->start();
 
+  // triangle->getTransform()->setPosition(...)
+  // triangle->getComponent<Transform>()->setPosition(...)
+  // triangle->getComponent<MeshRenderer>()->setMesh(...)
+
 /*
   std::shared_ptr<Foo> f = std::make_shared<TestFoo>();
 

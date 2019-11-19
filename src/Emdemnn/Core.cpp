@@ -1,5 +1,6 @@
 #include "Core.h"
 #include "Entity.h"
+#include "Transform.h"
 
 #include <GL/glew.h>
 
@@ -93,6 +94,7 @@ std::shared_ptr<Entity> Core::addEntity()
   
   entity->self = entity;
   entity->core = self;
+  entity->transform = entity->addComponent<Transform>();
 
   return entity;
 }
