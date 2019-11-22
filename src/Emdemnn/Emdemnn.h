@@ -8,19 +8,12 @@
 
 #include "MeshRenderer.h"
 #include "Exception.h"
+#include "TriangleRenderer.h"
 
 /*
-#include <rend/rend.h>
-
-namespace Emdemnn
-{
-  using namespace rend;
-}
-
 rend::mat4
 
 Emdemnn::mat4
-
 */
 
 #endif

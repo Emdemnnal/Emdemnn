@@ -37,6 +37,10 @@ add_library(Emdemnn
   src/Emdemnn/Camera.h
   src/Emdemnn/Camera.cpp
   src/Emdemnn/Rend.h
+  src/Emdemnn/Resources.h
+  src/Emdemnn/Resource.h
+  src/Emdemnn/TriangleRenderer.h
+  src/Emdemnn/TriangleRenderer.cpp
 )
 
 target_link_libraries(Emdemnn SDL2 rend)

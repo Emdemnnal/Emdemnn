@@ -18,7 +18,8 @@ int main()
 
   // Add a very simple component to it.
   //std::weak_ptr<TestScreen> testScreen = entity->addComponent<TestScreen>();
-  std::weak_ptr<MeshRenderer> triangle = entity->addComponent<MeshRenderer>();
+  //std::weak_ptr<MeshRenderer> triangle = entity->addComponent<MeshRenderer>();
+  std::weak_ptr<TriangleRenderer> triangle = entity->addComponent<TriangleRenderer>();
   // Start the engine's main loop.
   core->start();
 

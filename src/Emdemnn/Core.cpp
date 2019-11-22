@@ -16,7 +16,7 @@ std::shared_ptr<Core> Core::initialize()
   // Auto create object on use.
   std::shared_ptr<Core> core = std::make_shared<Core>();
   // Initialize context inside core.
-  core->context = Context::initialize();
+  //core->context = Context::initialize();
 
   core->running = false;
   // Smart pointer for referencing itself.

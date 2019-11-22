@@ -4,6 +4,8 @@
 #include <iostream>
 #include <memory>
 
+#include "Rend.h"
+
 namespace Emdemnn
 {
 

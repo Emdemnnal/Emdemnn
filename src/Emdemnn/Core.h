@@ -5,7 +5,8 @@
 
 #include "Exception.h"
 #include "Rend.h"
-//#include <rend/rend.h>
+
+class Resources;
 
 namespace Emdemnn
 {
@@ -18,7 +19,7 @@ private:
   std::list<std::shared_ptr<Entity>> entities;
   bool running;
   SDL_Window *window;
-  SDL_GLContext glContext;
+  //SDL_GLContext glContext;
   
   std::weak_ptr<Core> self;
   
