@@ -13,10 +13,6 @@ namespace Emdemnn
 class TriangleRenderer : public Component
 {
 private:
-  GLuint programId;
-  GLuint vaoId;
-  bool quit;
-  
   std::shared_ptr<Context> context;
   std::shared_ptr<Shader> shader;
   std::shared_ptr<Buffer> buffer;
