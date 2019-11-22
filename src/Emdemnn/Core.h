@@ -3,7 +3,9 @@
 
 #include <SDL2/SDL.h>
 
-#include <exception>
+#include "Exception.h"
+#include "Rend.h"
+//#include <rend/rend.h>
 
 namespace Emdemnn
 {
@@ -16,8 +18,13 @@ private:
   std::list<std::shared_ptr<Entity>> entities;
   bool running;
   SDL_Window *window;
+  SDL_GLContext glContext;
   
   std::weak_ptr<Core> self;
+  
+  // Pointers for stuff.
+  std::shared_ptr<Context> context;
+  std::shared_ptr<Resources> resource;
 
 public:
   static std::shared_ptr<Core> initialize();

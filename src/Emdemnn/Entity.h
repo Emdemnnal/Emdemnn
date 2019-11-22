@@ -45,12 +45,12 @@ public:
   {
     std::shared_ptr<T> t = std::make_shared<T>();
   
-  // Add it to the list of components on that entity.
+    // Add it to the list of components on that entity.
     components.push_back(t);
-  // Component knows what entity its attached to.
+    // Component knows what entity its attached to.
     t->entity = self; 
-  // Call Initialize function on added component.
-  t->onInit();
+    // Call Initialize function on added component.
+    t->onInit();
   
     return t;
   }
@@ -60,9 +60,9 @@ public:
   {
     std::shared_ptr<T> t = std::make_shared<T>();
 
-  // Add it to the list of components on that entity.
+    // Add it to the list of components on that entity.
     components.push_back(t);
-  // Component knows what entity its attached to.
+    // Component knows what entity its attached to.
     t->entity = self; 
     // Call Initialize function on added component.
   t->onInit(a);
@@ -75,9 +75,9 @@ public:
   {   
     std::shared_ptr<T> t = std::make_shared<T>();
   
-  // Add it to the list of components on that entity.
+    // Add it to the list of components on that entity.
     components.push_back(t);
-  // Component knows what entity its attached to.
+    // Component knows what entity its attached to.
     t->entity = self; 
     // Call Initialize function on added component.
   t->onInit(a, b);
@@ -90,12 +90,12 @@ public:
   {
     std::shared_ptr<T> t = std::make_shared<T>();
   
-  // Add it to the list of components on that entity.
+    // Add it to the list of components on that entity.
     components.push_back(t);
-  // Component knows what entity its attached to.
+    // Component knows what entity its attached to.
     t->entity = self; 
     // Call Initialize function on added component.
-  t->onInit(a, b, c);
+    t->onInit(a, b, c);
   
     return t;
     //return std::shared_ptr<T>();

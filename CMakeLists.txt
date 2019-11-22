@@ -36,6 +36,7 @@ add_library(Emdemnn
   src/Emdemnn/Transform.cpp
   src/Emdemnn/Camera.h
   src/Emdemnn/Camera.cpp
+  src/Emdemnn/Rend.h
 )
 
 target_link_libraries(Emdemnn SDL2 rend)

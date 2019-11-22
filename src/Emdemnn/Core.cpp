@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Transform.h"
 
+
 #include <GL/glew.h>
 
 namespace Emdemnn
@@ -14,7 +15,9 @@ std::shared_ptr<Core> Core::initialize()
 {
   // Auto create object on use.
   std::shared_ptr<Core> core = std::make_shared<Core>();
-  
+  // Initialize context inside core.
+  core->context = Context::initialize();
+
   core->running = false;
   // Smart pointer for referencing itself.
   core->self = core;
@@ -28,7 +31,19 @@ std::shared_ptr<Core> Core::initialize()
   core->window = SDL_CreateWindow("Emdemnn",
   SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
   WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL); 
+/*
+  core->glContext = SDL_GL_CreateContext(core->window);
 
+  if(core->!window)
+  {
+    throw Exception("Failed to create SDL window");	  
+  }
+  
+  if(core->!glContext)
+  {
+    throw Exception("Failed to create the OpenGL context");
+  }
+*/
   if(!SDL_GL_CreateContext(core->window))
   {
     throw std::exception();

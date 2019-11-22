@@ -15,9 +15,6 @@ private:
   GLuint vaoId;
   bool quit;
   
-  std::weak_ptr<Mesh> mesh;
-  std::shared_ptr<Material> material;
-  
   void onDisplay();
  
 public:

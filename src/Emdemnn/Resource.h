@@ -4,6 +4,8 @@
 #include <vector>
 #include <string>
 
+#include "Rend.h"
+
 class Resource
 {
 private:
