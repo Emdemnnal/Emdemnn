@@ -20,6 +20,7 @@ private:
   std::weak_ptr<Core> core;
   std::weak_ptr<Entity> self;
   std::weak_ptr<Transform> transform;
+  std::weak_ptr<Resources> resources;
   
   void tick();
   void display();
@@ -27,6 +28,7 @@ private:
 public:
   std::shared_ptr<Core> getCore();
   std::shared_ptr<Transform> getTransform();
+  std::shared_ptr<Resources> getResources();
   
   template <typename T>
   std::shared_ptr<T> getComponent()
@@ -65,7 +67,7 @@ public:
     // Component knows what entity its attached to.
     t->entity = self; 
     // Call Initialize function on added component.
-  t->onInit(a);
+    t->onInit(a);
 
     return t;
   }
@@ -80,7 +82,7 @@ public:
     // Component knows what entity its attached to.
     t->entity = self; 
     // Call Initialize function on added component.
-  t->onInit(a, b);
+    t->onInit(a, b);
   
     return t;
   }

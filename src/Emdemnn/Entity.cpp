@@ -28,4 +28,9 @@ std::shared_ptr<Transform> Entity::getTransform()
 {
   return transform.lock();
 }
+
+std::shared_ptr<Resources> Entity::getResources()
+{
+  return resources.lock();
+}
 }

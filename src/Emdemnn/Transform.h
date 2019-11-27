@@ -21,6 +21,6 @@ public:
   void scale(glm::vec3 amount);
   
   glm::vec3 getPosition();
-  //glm::mat4 getModel();
+  glm::mat4 getModel();
 };
 }

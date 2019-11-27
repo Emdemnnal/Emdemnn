@@ -15,7 +15,7 @@ public:
   {
     std::shared_ptr<T> t = std::make_shared<T>();
 	
-	
+	resources.push_back(t);
   }
   
   template <typename T>

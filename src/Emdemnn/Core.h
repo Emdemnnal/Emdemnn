@@ -6,11 +6,10 @@
 #include "Exception.h"
 #include "Rend.h"
 
-class Resources;
-
 namespace Emdemnn
 {
 class Entity;
+class Resources;
 
 class Core
 {
@@ -24,8 +23,8 @@ private:
   std::weak_ptr<Core> self;
   
   // Pointers for stuff.
-  std::shared_ptr<Context> context;
-  std::shared_ptr<Resources> resource;
+  //std::shared_ptr<Context> context;
+  std::weak_ptr<Resources> resources;
 
 public:
   static std::shared_ptr<Core> initialize();
@@ -34,5 +33,6 @@ public:
   void start();
   void stop();
   std::shared_ptr<Entity> addEntity();
+  std::shared_ptr<Resources> getResources();
 };
 }

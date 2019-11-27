@@ -113,4 +113,9 @@ std::shared_ptr<Entity> Core::addEntity()
 
   return entity;
 }
+
+std::shared_ptr<Resources> Core::getResources()
+{
+  return resources.lock();
+}
 }
