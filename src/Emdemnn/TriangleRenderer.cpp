@@ -1,5 +1,6 @@
 #include "TriangleRenderer.h"
 #include "Exception.h"
+#include "Core.h"
 
 namespace Emdemnn
 {
@@ -25,13 +26,14 @@ const GLchar *src =
   
 void TriangleRenderer::onInit()
 {
-  context->Context::initialize();
-  shader = context->createShader();
+  //context->Context::initialize();
+  // context = Context::initialize();
+  shader = getCore()->context->createShader();
   // Pass the "src" file into parse.
   shader->parse(src);
   
   // Preparing to add data.
-  buffer = context->createBuffer();
+  buffer = getCore()->context->createBuffer();
   // Position primitive data.
   buffer->add(vec3(0, 0.5f, 0.0f));
   buffer->add(vec3(-0.5f, -0.5f, 0.0f));

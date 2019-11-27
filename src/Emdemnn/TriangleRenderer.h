@@ -13,7 +13,6 @@ namespace Emdemnn
 class TriangleRenderer : public Component
 {
 private:
-  std::shared_ptr<Context> context;
   std::shared_ptr<Shader> shader;
   std::shared_ptr<Buffer> buffer;
   

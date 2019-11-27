@@ -12,6 +12,7 @@ namespace Emdemnn
 class Core;
 class Entity;
 class Transform;
+class Resources;
 
 class Component
 {
@@ -29,6 +30,8 @@ public:
   std::shared_ptr<Entity> getEntity();
   std::shared_ptr<Core> getCore();
   std::shared_ptr<Transform> getTransform();
+
+  // Shortcut (getEntity()->getCore()->getResources())
   std::shared_ptr<Resources> getResources();
 };
 }

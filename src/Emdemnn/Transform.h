@@ -16,9 +16,13 @@ public:
   void setRotation(glm::vec3 rotation);
   void setScale(glm::vec3 scale);
   
+  // Relative to origin
   void translate(glm::vec3 amount);
   void rotate(glm::vec3 amount);
   void scale(glm::vec3 amount);
+  
+  // Relative to objects direction
+  void move(vec3 amount);
   
   glm::vec3 getPosition();
   glm::mat4 getModel();

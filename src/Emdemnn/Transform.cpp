@@ -52,7 +52,7 @@ glm::mat4 Transform::getModel()
   // Multiplies the matrix on the y-axis of rotation.
   m = glm::rotate(m, Rotation.y, glm::vec3(0, 1, 0));
   // Multiplies the matrix on the z-axis of rotation.
-  m = glm::rotate(m, Rotation.y, glm::vec3(0, 0, 1));
+  m = glm::rotate(m, Rotation.z, glm::vec3(0, 0, 1));
   
   m = glm::scale(m, Scale);
   

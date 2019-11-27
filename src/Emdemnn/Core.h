@@ -10,20 +10,25 @@ namespace Emdemnn
 {
 class Entity;
 class Resources;
+class TriangleRenderer;
 
 class Core
 {
 private:
+  friend class TriangleRenderer;
+
   // List of entities the engine holds.
   std::list<std::shared_ptr<Entity>> entities;
   bool running;
   SDL_Window *window;
-  //SDL_GLContext glContext;
+  SDL_GLContext glContext;
   
   std::weak_ptr<Core> self;
   
   // Pointers for stuff.
-  //std::shared_ptr<Context> context;
+  std::shared_ptr<Context> context;
+
+  // TODO: Make a shared_ptr
   std::weak_ptr<Resources> resources;
 
 public:

@@ -8,6 +8,7 @@ namespace Emdemnn
 class Component;
 class Core;
 class Transform;
+class Resources;
 
 class Entity
 {
@@ -20,6 +21,8 @@ private:
   std::weak_ptr<Core> core;
   std::weak_ptr<Entity> self;
   std::weak_ptr<Transform> transform;
+
+  // TODO: Remove
   std::weak_ptr<Resources> resources;
   
   void tick();
@@ -28,6 +31,8 @@ private:
 public:
   std::shared_ptr<Core> getCore();
   std::shared_ptr<Transform> getTransform();
+
+  // TODO: getCore()->getResources();
   std::shared_ptr<Resources> getResources();
   
   template <typename T>

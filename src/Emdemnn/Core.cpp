@@ -29,21 +29,22 @@ std::shared_ptr<Core> Core::initialize()
   }
   
   core->window = SDL_CreateWindow("Emdemnn",
-  SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-  WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL); 
-/*
-  core->glContext = SDL_GL_CreateContext(core->window);
+    SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+    WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL); 
 
-  if(core->!window)
+  if(!core->window)
   {
     throw Exception("Failed to create SDL window");	  
   }
+
+  core->glContext = SDL_GL_CreateContext(core->window);
   
-  if(core->!glContext)
+  if(!core->glContext)
   {
     throw Exception("Failed to create the OpenGL context");
   }
-*/
+
+/*
   if(!SDL_GL_CreateContext(core->window))
   {
     throw std::exception();
@@ -53,6 +54,9 @@ std::shared_ptr<Core> Core::initialize()
   {
     throw std::exception();
   }
+*/
+
+  core->context = Context::initialize();
 
   return core;
 }
@@ -78,13 +82,13 @@ void Core::start()
       }
     }
     
-    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
     for(std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
     {
       (*it)->tick(); 
     }
+
+    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     for(std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
     {
