@@ -16,6 +16,7 @@ std::shared_ptr<Core> Core::initialize()
   std::shared_ptr<Core> core = std::make_shared<Core>();
   // Initialize context inside core.
   core->context = Context::initialize();
+  
   // Sets boolean to false so engine isn't running when initialized.
   core->running = false;
   // Smart pointer for referencing itself.
@@ -55,7 +56,31 @@ std::shared_ptr<Core> Core::initialize()
   }
 */
 
+  // Initialize context inside core.
   core->context = Context::initialize();
+  
+  // Open the OpenGL device.
+  core->device = alcOpenDevice(NULL);
+  
+  if(!core->device)
+  {
+	throw Exception("Failed to open AL device.");
+  }
+  // Create the audio context on core initialization.
+  core->audioContext = alcCreateContext(core->device, NULL);
+  
+   if(!core->audioContext)
+  {
+    alcCloseDevice(core->device);
+	throw Exception("Failed to create the audio context.");
+  }
+  
+  if(!alcMakeContextCurrent(core->audioContext))
+  {
+    alcDestroyContext(core->context);
+	alcCloseDevice(core->device);
+	throw Exception("
+  }
 
   return core;
 }

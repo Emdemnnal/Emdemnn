@@ -20,13 +20,21 @@ private:
 
   // List of entities the engine holds.
   std::list<std::shared_ptr<Entity>> entities;
+  // Game Engine State.
   bool running;
+  // SDL window.
   SDL_Window *window;
+  // OpenGL Context.
   SDL_GLContext glContext;
+  // OpenAL Device.
+  ALCdevice *device;
+  // Sound Context.
+  ALCcontext *audioContext;
   
+  // Reference to self
   std::weak_ptr<Core> self;
   
-  // Pointers for stuff.
+  // Setting up Context initialization.
   std::shared_ptr<Context> context;
 
   // Keeps a reference to the resources.
