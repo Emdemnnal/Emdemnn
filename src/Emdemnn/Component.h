@@ -17,7 +17,7 @@ class Resources;
 class Component
 {
 private:
-  // Allows Entity class to access variables from Component.
+  // Allows Entity class to access private variables from Component.
   friend class Emdemnn::Entity;
   
   std::weak_ptr<Entity> entity;
@@ -30,8 +30,6 @@ public:
   std::shared_ptr<Entity> getEntity();
   std::shared_ptr<Core> getCore();
   std::shared_ptr<Transform> getTransform();
-
-  // Shortcut (getEntity()->getCore()->getResources())
   std::shared_ptr<Resources> getResources();
 };
 }

@@ -31,6 +31,6 @@ std::shared_ptr<Transform> Entity::getTransform()
 
 std::shared_ptr<Resources> Entity::getResources()
 {
-  return resources.lock();
+  return getCore()->getResources();
 }
 }

@@ -35,6 +35,6 @@ std::shared_ptr<Transform> Component::getTransform()
 
 std::shared_ptr<Resources> Component::getResources()
 {
-  return getEntity()->getResources();
+  return getEntity()->getCore()->getResources();
 }
 }

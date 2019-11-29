@@ -15,6 +15,7 @@ class TriangleRenderer;
 class Core
 {
 private:
+  // Allows renderer to access private variables from core.
   friend class TriangleRenderer;
 
   // List of entities the engine holds.
@@ -28,8 +29,8 @@ private:
   // Pointers for stuff.
   std::shared_ptr<Context> context;
 
-  // TODO: Make a shared_ptr
-  std::weak_ptr<Resources> resources;
+  // Keeps a reference to the resources.
+  std::shared_ptr<Resources> resources;
 
 public:
   static std::shared_ptr<Core> initialize();

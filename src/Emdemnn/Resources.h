@@ -18,16 +18,24 @@ public:
   {
     // loop through resources
       // if resource.path == path
-        return resource
-
+	  // return resource
+	/*
+	for(std::list<std::shared_ptr<Resource>::iterator it = resources.begin(); it != resources.end(); it++)
+	{
+	  if(resource.path == path)
+	  {
+        return resource;
+	  }
+	} 
+    */
     std::shared_ptr<T> t = std::make_shared<T>();
-    // Set core pointer so it can go up
+    // Set core pointer so it can go up.
     //t->core = core;
     //t->resources = self;
 
     t->load(path);
 
-    // Add to cache
+    // Add to cache.
     resources.push_back(t);
   }
   

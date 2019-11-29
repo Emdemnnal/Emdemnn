@@ -2,7 +2,6 @@
 #include "Entity.h"
 #include "Transform.h"
 
-
 #include <GL/glew.h>
 
 namespace Emdemnn
@@ -16,8 +15,8 @@ std::shared_ptr<Core> Core::initialize()
   // Auto create object on use.
   std::shared_ptr<Core> core = std::make_shared<Core>();
   // Initialize context inside core.
-  //core->context = Context::initialize();
-
+  core->context = Context::initialize();
+  // Sets boolean to false so engine isn't running when initialized.
   core->running = false;
   // Smart pointer for referencing itself.
   core->self = core;
@@ -111,8 +110,11 @@ std::shared_ptr<Entity> Core::addEntity()
   // Add it to list of entities on Core.
   entities.push_back(entity);
   
+  // Stores pointer to itself.
   entity->self = entity;
+  // Set Entity's core weak_ptr to core's self.
   entity->core = self;
+  // Add a component transform to each entity.
   entity->transform = entity->addComponent<Transform>();
 
   return entity;
@@ -120,6 +122,6 @@ std::shared_ptr<Entity> Core::addEntity()
 
 std::shared_ptr<Resources> Core::getResources()
 {
-  return resources.lock();
+  return resources;
 }
 }
