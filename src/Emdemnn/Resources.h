@@ -2,6 +2,8 @@
 #include <list>
 #include <string>
 
+namespace Emdemnn
+{
 class Resource;
 class Core;
 
@@ -32,8 +34,9 @@ public:
     std::shared_ptr<T> t = std::make_shared<T>();
     // Set core pointer so it can go up.
     t->core = core;
+	// Resource knows where it is.
     t->resources = self;
-
+    // Calls onLoad function on loaded resources.
     t->onLoad(path);
 
     // Add to cache.
@@ -47,3 +50,4 @@ public:
 
   }*/
 };
+}

@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "Entity.h"
 #include "Transform.h"
+#include "Resources.h"
 
 #include <GL/glew.h>
 
@@ -20,6 +21,11 @@ std::shared_ptr<Core> Core::initialize()
   core->running = false;
   // Smart pointer for referencing itself.
   core->self = core;
+  
+  // Initialize Resources.
+  resources = std::make_shared<Resources>();
+  // Sets resources' core weak_ptr to core's self.
+  resources->core = self;
   
   // Create a window output for the engine.  
   if(SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -58,6 +64,8 @@ std::shared_ptr<Core> Core::initialize()
   // Initialize context inside core.
   core->context = Context::initialize();
   
+  
+  /*
   // Open the OpenGL device.
   core->device = alcOpenDevice(NULL);
   
@@ -79,7 +87,7 @@ std::shared_ptr<Core> Core::initialize()
     alcDestroyContext(core->context);
 	alcCloseDevice(core->device);
 	throw Exception("
-  }
+  }*/
 
   return core;
 }

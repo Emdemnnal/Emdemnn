@@ -15,6 +15,7 @@ class Entity
 private:
   // Allows Core class to access private variables from Entity.
   friend class Emdemnn::Core;
+  
   // List of components that entity holds.
   std::list<std::shared_ptr<Component>> components;
   
