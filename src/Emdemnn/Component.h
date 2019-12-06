@@ -24,6 +24,7 @@ private:
   virtual void onDisplay();
 
 public:
+  // Getters.
   std::shared_ptr<Entity> getEntity();
   std::shared_ptr<Core> getCore();
   std::shared_ptr<Transform> getTransform();

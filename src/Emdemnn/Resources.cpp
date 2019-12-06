@@ -2,7 +2,8 @@
 
 namespace Emdemnn
 {
-
-
-
+std::shared_ptr<Core> Resources::getCore()
+{
+  return core.lock;
+}
 }

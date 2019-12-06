@@ -16,7 +16,7 @@ class Core
 {
 private:
   // Allows renderer to access private variables from core.
-  friend class TriangleRenderer;
+  friend class Emdemnn::TriangleRenderer;
 
   // List of entities the engine holds.
   std::list<std::shared_ptr<Entity>> entities;

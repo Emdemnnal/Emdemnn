@@ -11,5 +11,7 @@ private:
   
 public:
   void onLoad(const std::string& path);
+  
+  std::shared_ptr getCore();
 };
 }

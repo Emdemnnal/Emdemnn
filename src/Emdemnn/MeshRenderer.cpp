@@ -48,7 +48,7 @@ const GLfloat positions[] =
 void MeshRenderer::onInit()
 {
   // Call createShader function from Core.
-  shader = getCore()->context->createShader();
+  material = getCore()->getResources()->context->createShader();
 }
 
 void MeshRenderer::onDisplay()

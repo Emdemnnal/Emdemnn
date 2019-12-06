@@ -10,12 +10,16 @@ class Core;
 class Resources
 {
 private:
+  // Allows Core class to access private variables from Resources.
+  friend class Emdemnn::Core;
   std::list<std::shared_ptr<Resource>> resources;
   
   std::weak_ptr<Core> core;
   std::weak_ptr<Resources> self;
 
 public:
+  std::shared_ptr<Core> getCore();
+
   template <typename T>
   std::shared_ptr<T> load(std::string path)
   {

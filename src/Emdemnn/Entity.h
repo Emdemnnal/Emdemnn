@@ -27,6 +27,7 @@ private:
   void display();
 
 public:
+  // Getters.
   std::shared_ptr<Core> getCore();
   std::shared_ptr<Transform> getTransform();
   std::shared_ptr<Resources> getResources();
