@@ -3,10 +3,11 @@
 
 namespace Emdemnn
 {
-class Mesh : public Resource
+class Material : public Resource
 {
 private:
-  std::shared_ptr<Mesh> mesh;
+  std::shared_ptr<Shader> shader;
+  std::shared_ptr<Texture> texture;
   
 public:
   void onLoad(const std::string& path);

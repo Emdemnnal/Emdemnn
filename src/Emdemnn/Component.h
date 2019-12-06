@@ -4,11 +4,8 @@
 #include <iostream>
 #include <memory>
 
-#include "Rend.h"
-
 namespace Emdemnn
 {
-
 class Core;
 class Entity;
 class Transform;

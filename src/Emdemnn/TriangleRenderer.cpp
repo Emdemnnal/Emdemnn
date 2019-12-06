@@ -28,6 +28,7 @@ void TriangleRenderer::onInit()
 {
   //context->Context::initialize();
   // context = Context::initialize();
+  // Call createShader function from Core.
   shader = getCore()->context->createShader();
   // Pass the "src" file into parse.
   shader->parse(src);
