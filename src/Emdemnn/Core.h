@@ -11,12 +11,15 @@ namespace Emdemnn
 class Entity;
 class Resources;
 class TriangleRenderer;
+class MeshRenderer;
 
 class Core
 {
 private:
   // Allows renderer to access private variables from core.
   friend class Emdemnn::TriangleRenderer;
+   // Allows renderer to access private variables from core.
+  friend class Emdemnn::MeshRenderer;
 
   // List of entities the engine holds.
   std::list<std::shared_ptr<Entity>> entities;
@@ -27,9 +30,9 @@ private:
   // OpenGL Context.
   SDL_GLContext glContext;
   // OpenAL Device.
-  ALCdevice *device;
+  //ALCdevice *device;
   // Sound Context.
-  ALCcontext *audioContext;
+  //ALCcontext *audioContext;
   
   // Reference to self
   std::weak_ptr<Core> self;
@@ -47,6 +50,8 @@ public:
   void start();
   void stop();
   std::shared_ptr<Entity> addEntity();
+  
   std::shared_ptr<Resources> getResources();
+  std::shared_ptr<Context> getContext();
 };
 }

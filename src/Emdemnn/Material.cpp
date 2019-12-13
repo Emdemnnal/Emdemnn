@@ -1,19 +1,23 @@
 #include "Material.h"
+#include "Core.h"
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 namespace Emdemnn
 {
-void Material::onLoad(const std::string& path)
+void Material::onLoad(const std::string& path, const std::string& shaderPath)
 {
-  shader = getCore->context->createShader();
-  shader->parse(path);
+  shader = getCore()->getContext()->createShader();
+  shader->parse(shaderPath);
   
-  texture = getCore->context->createTexture();
+  texture = getCore()->getContext()->createTexture();
   {
     int w = 0;
     int h = 0;
     int bpp = 0;
 
-    unsigned char *data = stbi_load(path,
+    unsigned char *data = stbi_load(path.c_str(),
       &w, &h, &bpp, 3);
 
     if(!data)
@@ -38,7 +42,5 @@ void Material::onLoad(const std::string& path)
 
     stbi_image_free(data);
   }
-  
-  
 }
 }

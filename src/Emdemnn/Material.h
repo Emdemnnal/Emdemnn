@@ -3,15 +3,18 @@
 
 namespace Emdemnn
 {
+class MeshRenderer;		
+	
 class Material : public Resource
 {
 private:
-  std::shared_ptr<Shader> shader;
-  std::shared_ptr<Texture> texture;
+  // Allows MeshRenderer class to access private variables from Mesh.
+  friend class Emdemnn::MeshRenderer;
+  
+  std::shared_ptr<rend::Shader> shader;
+  std::shared_ptr<rend::Texture> texture;
   
 public:
-  void onLoad(const std::string& path);
-  
-  std::shared_ptr getCore();
+  void onLoad(const std::string& path, const std::string& shaderPath);
 };
 }

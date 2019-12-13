@@ -1,4 +1,5 @@
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include "Component.h"
 
@@ -22,7 +23,7 @@ public:
   void scale(glm::vec3 amount);
   
   // Relative to objects direction
-  void move(vec3 amount);
+  void move(glm::vec3 amount);
   
   glm::vec3 getPosition();
   glm::mat4 getModel();

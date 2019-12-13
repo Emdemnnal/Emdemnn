@@ -1,14 +1,15 @@
 #include "Resource.h"
+#include "Core.h"
 
 namespace Emdemnn
 {	
-std::shared_ptr<Core> Material::getCore()
+std::shared_ptr<Core> Resource::getCore()
 {
-  return core.lock;
+  return core.lock();
 }
 	
-std::shared_ptr<Resources> Material::getResources()
+std::shared_ptr<Resources> Resource::getResources()
 {
-  return getCore->getResources();
+  return getCore()->getResources();
 }
 }

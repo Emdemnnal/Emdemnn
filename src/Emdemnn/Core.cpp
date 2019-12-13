@@ -14,8 +14,7 @@ std::shared_ptr<Core> Core::initialize()
 {
   // Auto create object on use.
   std::shared_ptr<Core> core = std::make_shared<Core>();
-  // Initialize context inside core.
-  core->context = Context::initialize();
+  
   
   // Sets boolean to false so engine isn't running when initialized.
   core->running = false;
@@ -23,9 +22,9 @@ std::shared_ptr<Core> Core::initialize()
   core->self = core;
   
   // Initialize Resources.
-  resources = std::make_shared<Resources>();
+  core->resources = std::make_shared<Resources>();
   // Sets resources' core weak_ptr to core's self.
-  resources->core = self;
+  core->resources->core = core->self;
   
   // Create a window output for the engine.  
   if(SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -60,10 +59,9 @@ std::shared_ptr<Core> Core::initialize()
     throw std::exception();
   }
 */
-
+  
   // Initialize context inside core.
   core->context = Context::initialize();
-  
   
   /*
   // Open the OpenGL device.
@@ -155,5 +153,10 @@ std::shared_ptr<Entity> Core::addEntity()
 std::shared_ptr<Resources> Core::getResources()
 {
   return resources;
+}
+
+std::shared_ptr<Context> Core::getContext()
+{
+  return context;
 }
 }

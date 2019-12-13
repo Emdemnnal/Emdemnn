@@ -17,9 +17,17 @@ int main()
   std::shared_ptr<Entity> entity = core->addEntity();
 
   // Add a very simple component to it.
+  std::shared_ptr<MeshRenderer> level = entity->addComponent<MeshRenderer>();
   //std::weak_ptr<TestScreen> testScreen = entity->addComponent<TestScreen>();
-  //std::weak_ptr<MeshRenderer> triangle = entity->addComponent<MeshRenderer>();
-  std::weak_ptr<TriangleRenderer> triangle = entity->addComponent<TriangleRenderer>();
+  //std::weak_ptr<TriangleRenderer> triangle = entity->addComponent<TriangleRenderer>();
+  
+  // Create Resources.
+  std::shared_ptr<Model> mesh = core->getResources()->load<Model>("../sources/graveyard/graveyard.obj");
+  level->setMesh(mesh);
+  
+  std::shared_ptr<Material> material = core->getResources()->load<Material>("../sources/graveyard/graveyard.png", "../sources/shaders/shader.txt");
+  level->setMaterial(material);
+  
   // Start the engine's main loop.
   core->start();
 

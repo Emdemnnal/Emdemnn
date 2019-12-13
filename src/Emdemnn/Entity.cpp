@@ -1,5 +1,7 @@
 #include "Entity.h"
 #include "Component.h"
+#include "Core.h"
+#include "Transform.h"
 
 namespace Emdemnn
 {

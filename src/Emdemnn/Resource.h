@@ -1,3 +1,6 @@
+#ifndef _RESOURCE_H
+#define _RESOURCE_H
+
 #include <GL/glew.h>
 #include <string>
 #include <memory>
@@ -6,7 +9,7 @@
 #include <fstream>
 
 #include "Rend.h"
-#include "Excpetion
+#include "Exception.h"
 
 namespace Emdemnn
 {
@@ -20,12 +23,14 @@ private:
   friend class Emdemnn::Resources;
   
   std::weak_ptr<Core> core;
+  std::weak_ptr<Resources> resources;
   
 public:
-  void onLoad(std::string& path);
+  virtual void onLoad(std::string& path);
   
   // Getters.
   std::shared_ptr<Core> getCore();
-  std::shared_ptr<Resources> getResources():
+  std::shared_ptr<Resources> getResources();
 };
 }
+#endif
