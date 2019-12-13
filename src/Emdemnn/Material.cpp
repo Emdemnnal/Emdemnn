@@ -38,5 +38,7 @@ void Material::onLoad(const std::string& path)
 
     stbi_image_free(data);
   }
+  
+  
 }
 }

@@ -47,13 +47,23 @@ const GLfloat positions[] =
 
 void MeshRenderer::onInit()
 {
-  // Call createShader function from Core.
+  // TODO: Set this to onLoad stuff.
   material = getCore()->getResources()->context->createShader();
 }
 
 void MeshRenderer::onDisplay()
 {
-  
+  // TODO: setUniforms here as well as the render() function call.
+}
+
+void MeshRenderer::setMesh()
+{
+  // TODO: do the setMesh of mesh from mesh class here after loaded.
+}
+
+void MeshRenderer::setMaterial()
+{
+  // TODO: do the setTexture of texture from texture class here after loaded.
 }
 
 std::shared_ptr MeshRenderer::getMesh()
