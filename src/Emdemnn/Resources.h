@@ -49,21 +49,9 @@ public:
 	return t;
   }
   
-  template <typename T, typename A, typename B>
-  std::shared_ptr<T> load(std::string path, std::string shaderPath)
+  template <typename T, typename A>
+  std::shared_ptr<T> load(A path, A shaderPath)
   {
-    // loop through resources
-      // if resource.path == path
-	  // return resource
-	/*
-	for(std::list<std::shared_ptr<Resource>::iterator it = resources.begin(); it != resources.end(); it++)
-	{
-	  if(resource.path == path)
-	  {
-        return resource;
-	  }
-	} 
-    */
     std::shared_ptr<T> t = std::make_shared<T>();
     // Set core pointer so it can go up.
     t->core = core;
@@ -77,12 +65,5 @@ public:
 	
 	return t;
   }
-  
-  /*
-  template <typename T>
-  std::shared_ptr<T> create()
-  {
-
-  }*/
 };
 }

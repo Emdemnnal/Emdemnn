@@ -26,7 +26,7 @@ private:
   std::weak_ptr<Resources> resources;
   
 public:
-  virtual void onLoad(std::string& path);
+  virtual void onLoad();
   
   // Getters.
   std::shared_ptr<Core> getCore();

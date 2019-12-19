@@ -9,7 +9,6 @@
 #include "Exception.h"
 
 #include "MeshRenderer.h"
-#include "TriangleRenderer.h"
 
 #include "Resources.h"
 #include "Model.h"

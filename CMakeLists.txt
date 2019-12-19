@@ -45,8 +45,6 @@ add_library(Emdemnn
   src/Emdemnn/Model.cpp
   src/Emdemnn/Material.h
   src/Emdemnn/Material.cpp
-  src/Emdemnn/TriangleRenderer.h
-  src/Emdemnn/TriangleRenderer.cpp
   src/Emdemnn/stb_image.h
 )
 
