@@ -9,7 +9,33 @@ namespace Emdemnn
 void Material::onLoad(const std::string& path, const std::string& shaderPath)
 {
   shader = getCore()->getContext()->createShader();
-  shader->parse(shaderPath);
+  std::string fileShader;
+  {
+	// Create input file stream object and pass location of vert file.
+	std::ifstream file(shaderPath);
+
+	// Checking to see if file is open.
+	if (!file.is_open())
+	{
+		throw std::exception();
+	}
+	else
+	{
+		// Checking if current line is not the end of the file.
+		while (!file.eof())
+		{
+			// Create temp string *line*.
+			std::string line;
+			// Retrieves whole line from file and pushes into *line*.
+			std::getline(file, line);
+			// Add it to vertShader.
+			fileShader += line + "\n";
+		}
+	}
+	// Close the current open file.
+	file.close();
+  }
+  shader->parse(fileShader);
   
   texture = getCore()->getContext()->createTexture();
   {
