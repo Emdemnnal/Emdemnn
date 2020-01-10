@@ -28,6 +28,11 @@ int main()
   std::shared_ptr<Material> material = core->getResources()->load<Material>("../sources/graveyard/graveyard.png", "../sources/shaders/shader.txt");
   level->setMaterial(material);
   
+  // Create Camera.
+  std::shared_ptr<Entity> entityCamera = core->addEntity();
+  std::shared_ptr<Camera> camera = entityCamera->addComponent<Camera>();
+  entityCamera->getTransform()->setPosition(glm::vec3(0, 0, 10));
+  
   // Start the engine's main loop.
   core->start();
 

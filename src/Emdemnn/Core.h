@@ -12,6 +12,7 @@ class Entity;
 class Resources;
 class TriangleRenderer;
 class MeshRenderer;
+class Camera;
 
 class Core
 {
@@ -20,9 +21,13 @@ private:
   friend class Emdemnn::TriangleRenderer;
    // Allows renderer to access private variables from core.
   friend class Emdemnn::MeshRenderer;
+  // Allows camera class to access private variables from core.
+  friend class Emdemnn::Camera;
 
   // List of entities the engine holds.
   std::list<std::shared_ptr<Entity>> entities;
+  // Vector of Camera objects.
+  std::vector<std::shared_ptr<Camera>> cameras;
   // Game Engine State.
   bool running;
   // SDL window.
