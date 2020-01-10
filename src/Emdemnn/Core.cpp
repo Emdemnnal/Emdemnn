@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Transform.h"
 #include "Resources.h"
+#include "Camera.h"
 
 #include <GL/glew.h>
 
@@ -158,5 +159,10 @@ std::shared_ptr<Resources> Core::getResources()
 std::shared_ptr<Context> Core::getContext()
 {
   return context;
+}
+
+std::shared_ptr<Camera> Core::getCurrentCamera()
+{
+  return cameras.at(0);
 }
 }

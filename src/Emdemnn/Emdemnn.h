@@ -14,6 +14,9 @@
 #include "Model.h"
 #include "Material.h"
 
+#include "Transform.h"
+#include "Camera.h"
+
 /*
 rend::mat4
 

@@ -58,5 +58,6 @@ public:
   
   std::shared_ptr<Resources> getResources();
   std::shared_ptr<Context> getContext();
+  std::shared_ptr<Camera> getCurrentCamera();
 };
 }
