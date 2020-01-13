@@ -2,6 +2,13 @@
 
 namespace Emdemnn
 {
+
+void Transform::onInit()
+{
+  Scale = glm::vec3(1, 1, 1);
+}
+
+//void Transform::setPosition(const glm::vec3& position)
 void Transform::setPosition(glm::vec3 position)
 {
   Position = position;

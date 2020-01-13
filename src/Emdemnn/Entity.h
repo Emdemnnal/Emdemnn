@@ -38,7 +38,11 @@ public:
     for (auto it = components.begin(); it != components.end(); ++it)
     {
       std::shared_ptr<T> t = std::dynamic_pointer_cast<T>(*it);
-      return t;
+
+      if(t)
+      {
+        return t;
+      }
     }
      
     throw Exception("Doesn't Exist");

@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 project(Emdemnn)
 
+#add_definitions(-DGLM_FORCE_CTOR_INIT)
+
 include_directories(
   src
 )

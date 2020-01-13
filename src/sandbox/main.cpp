@@ -39,7 +39,9 @@ int main()
   // Create Camera.
   std::shared_ptr<Entity> entityCamera = core->addEntity();
   std::shared_ptr<Camera> camera = entityCamera->addComponent<Camera>();
-  entityCamera->getTransform()->setPosition(glm::vec3(0, 0, 10));
+  entityCamera->getTransform()->setPosition(glm::vec3(0, 4, 10));
+
+  entityCat->getTransform()->setPosition(glm::vec3(0, 0, -6));
   
   // Start the engine's main loop.
   core->start();

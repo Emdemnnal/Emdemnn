@@ -13,6 +13,9 @@ private:
   glm::vec3 Scale;
   
 public:
+  void onInit();
+
+  //void setPosition(const glm::vec3& position);
   void setPosition(glm::vec3 position);
   void setRotation(glm::vec3 rotation);
   void setScale(glm::vec3 scale);
@@ -28,4 +31,5 @@ public:
   glm::vec3 getPosition();
   glm::mat4 getModel();
 };
+
 }
