@@ -7,6 +7,17 @@
 
 using namespace Emdemnn;
 
+struct Player : Component
+{
+  void Player::onTick()
+  {
+    //if(getCore()->getKeyboard()->keyDown(SDLK_UP))
+    //{
+    // rotate
+    //}
+  }
+};
+
 int main()
 {
   // Initialize our engine.

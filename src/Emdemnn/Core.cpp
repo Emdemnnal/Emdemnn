@@ -112,11 +112,12 @@ void Core::start()
       }
 	  else if(event.type == SDL_KEYDOWN)
 	  {
-        
+            // add key int to keyboard class
+            // keyboard->keys.push_back(event.key.keysym.sym);
 	  }
 	  else if(event.type == SDL_KEYUP)
 	  {
-	    
+	    // remove key from keyboard
 	  }
     }
     

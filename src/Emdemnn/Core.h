@@ -13,6 +13,7 @@ class Resources;
 class TriangleRenderer;
 class MeshRenderer;
 class Camera;
+class Keyboard;
 
 class Core
 {
@@ -47,6 +48,8 @@ private:
 
   // Keeps a reference to the resources.
   std::shared_ptr<Resources> resources;
+
+  std::shared_ptr<Keyboard> keyboard;
 
 public:
   static std::shared_ptr<Core> initialize();
