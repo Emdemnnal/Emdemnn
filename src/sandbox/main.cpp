@@ -13,20 +13,28 @@ int main()
   std::shared_ptr<Core> core = Core::initialize();
   std::cout << "Emdemnn Engine" << std::endl;
   
-  // Create a single in-game object.
+  // Create a in-game objects.
   std::shared_ptr<Entity> entity = core->addEntity();
+  std::shared_ptr<Entity> entityCat = core->addEntity();
 
-  // Add a very simple component to it.
+  // Add components to it.
   std::shared_ptr<MeshRenderer> level = entity->addComponent<MeshRenderer>();
+  std::shared_ptr<MeshRenderer> player = entityCat->addComponent<MeshRenderer>();
+  
   //std::weak_ptr<TestScreen> testScreen = entity->addComponent<TestScreen>();
   //std::weak_ptr<TriangleRenderer> triangle = entity->addComponent<TriangleRenderer>();
   
   // Create Resources.
   std::shared_ptr<Model> mesh = core->getResources()->load<Model>("../sources/graveyard/graveyard.obj");
-  level->setMesh(mesh);
-  
   std::shared_ptr<Material> material = core->getResources()->load<Material>("../sources/graveyard/graveyard.png", "../sources/shaders/shader.txt");
+  std::shared_ptr<Model> mesh2 = core->getResources()->load<Model>("../sources/curuthers/curuthers.obj");
+  std::shared_ptr<Material> material2 = core->getResources()->load<Material>("../sources/curuthers/Whiskers_diffuse.png", "../sources/shaders/shader.txt");
+ 
+  // Set Resources.
+  level->setMesh(mesh);
   level->setMaterial(material);
+  player->setMesh(mesh2);
+  player->setMaterial(material2);
   
   // Create Camera.
   std::shared_ptr<Entity> entityCamera = core->addEntity();

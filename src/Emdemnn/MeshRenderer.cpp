@@ -15,7 +15,7 @@ void MeshRenderer::onInit()
 
 void MeshRenderer::onDisplay()
 {
-  angle += 0.1f;
+  //angle += 0.1f;
   
   mesh->model->setTexture("u_Texture", material->texture);
 
@@ -24,7 +24,7 @@ void MeshRenderer::onDisplay()
   // material->shader->setUniform("u_View", getCore()->getCurrentCamera()->getView());
   material->shader->setUniform("u_Model",
     rotate(glm::mat4(1.0f), glm::radians(10.0f), glm::vec3(1, 0, 0)) *
-    rotate(glm::mat4(1.0f), glm::radians(angle), glm::vec3(0, 1, 0)) *
+    rotate(glm::mat4(1.0f), glm::radians(0.1f), glm::vec3(0, 1, 0)) *
     translate(glm::mat4(1.0f), glm::vec3(5, -2, 45))
   );
   material->shader->setMesh(mesh->model);
