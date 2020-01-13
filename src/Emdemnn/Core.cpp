@@ -110,6 +110,14 @@ void Core::start()
       {
         running = false;
       }
+	  else if(event.type == SDL_KEYDOWN)
+	  {
+        
+	  }
+	  else if(event.type == SDL_KEYUP)
+	  {
+	    
+	  }
     }
     
     for(std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)

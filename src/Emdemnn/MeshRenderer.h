@@ -1,11 +1,6 @@
-#include <SDL2/SDL.h>
-#include <GL/glew.h>
 #include <memory>
 
 #include "Component.h"
-
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 480
 
 namespace Emdemnn
 {

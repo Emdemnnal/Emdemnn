@@ -11,12 +11,12 @@ void Component::onInit()
 
 void Component::onTick()
 {
-  std::cout << "Hello I am Ticking!" << std::endl;
+  //std::cout << "Hello I am Ticking!" << std::endl;
 }
 
 void Component::onDisplay()
 {
-  std::cout << "Hello I am Display!" << std::endl;
+  //std::cout << "Hello I am Display!" << std::endl;
 }
 
 std::shared_ptr<Entity> Component::getEntity()
