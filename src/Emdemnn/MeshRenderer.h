@@ -15,7 +15,7 @@ private:
   // Reference to engine's Material Class.
   std::shared_ptr<Material> material;
   
-  //float angle = 0.0f;
+  float angle = 0.0f;
   
   void onDisplay();
  
