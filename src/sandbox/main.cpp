@@ -11,9 +11,9 @@ struct Player : Component
 {
   void Player::onTick()
   {
-    //if(getCore()->getKeyboard()->keyDown(SDLK_UP))
+    //if(getCore()->getKeyboard()->isKeyPressed(SDLK_W))
     //{
-    // rotate
+    // moveUp
     //}
   }
 };
