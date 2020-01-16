@@ -21,7 +21,7 @@ public:
    * This onLoad() function is what is called when a new resource is added to resources.
    * This is the overriding function of the derived class.
    * It uses functionality from the rend wrapper of openGL to create a mesh, and then parses the file after
-     it has been read through a file reader and put into a string, again using rend.
+   * it has been read through a file reader and put into a string, again using rend.
    * \param path is the only argument, which takes a path to load a model.
    */
   void onLoad(const std::string& path);

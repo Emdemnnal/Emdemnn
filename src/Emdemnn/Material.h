@@ -22,7 +22,7 @@ public:
    * This onLoad() function is what is called when a new resource is added to resources.
    * This is the overriding function of the derived class.
    * It uses functionality from the rend wrapper of openGL to create a shader, and then parses the second argument
-     after it has been read through a file reader and put into a string, again using rend.
+   * after it has been read through a file reader and put into a string, again using rend.
    * It then uses rend to create a texture, in which the first argument is converted into a c-string and used.
    * \param path is the first argument, which takes a path to load a texture.
    * \param shaderPath is the second argument, which takes a path to load a shader file.

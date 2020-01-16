@@ -62,7 +62,7 @@ public:
   /// This is the function to call when a user wants to start running the game engine.
   /**
    * This engine start function is what loops through and calls the corresponding tick and display
-     functions on the list of entities that the game engine contains.
+   * functions on the list of entities that the game engine contains.
    * It is also responsible for managing all keyboard input.
    * \return The core type object.
    */

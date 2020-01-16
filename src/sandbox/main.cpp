@@ -11,11 +11,31 @@ struct Player : Component
 {
   void onTick()
   {
-    if(getKeyboard()->isKey(EM_W))
+    if(getKeyboard()->isKey('w'))
     {
-      getTransform()->rotate(vec3(0, 0.001f, 0));
       getTransform()->translate(vec3(0, 0, -0.1f));
     }
+	else if(getKeyboard()->isKey('s'))
+    {
+      getTransform()->translate(vec3(0, 0, 0.1f));
+    }
+	else if(getKeyboard()->isKey('a'))
+    {
+      getTransform()->translate(vec3(-0.1f, 0, 0));
+    }
+	else if(getKeyboard()->isKey('d'))
+    {
+      getTransform()->translate(vec3(0.1f, 0, 0));
+    }
+	else if(getKeyboard()->isKey(EM_Q))
+    {
+      getTransform()->rotate(vec3(0, 0.04f, 0));
+    }
+	else if(getKeyboard()->isKey(EM_E))
+    {
+      getTransform()->rotate(vec3(0, -0.04f, 0));
+    }
+	
   }
 };
 
@@ -33,9 +53,6 @@ int main()
   std::shared_ptr<MeshRenderer> level = entity->addComponent<MeshRenderer>();
   std::shared_ptr<MeshRenderer> player = entityCat->addComponent<MeshRenderer>();
   
-  //std::weak_ptr<TestScreen> testScreen = entity->addComponent<TestScreen>();
-  //std::weak_ptr<TriangleRenderer> triangle = entity->addComponent<TriangleRenderer>();
-  
   // Create Resources.
   std::shared_ptr<Model> mesh = core->getResources()->load<Model>("../sources/graveyard/graveyard.obj");
   std::shared_ptr<Material> material = core->getResources()->load<Material>("../sources/graveyard/graveyard.png", "../sources/shaders/shader.txt");
@@ -52,22 +69,13 @@ int main()
   std::shared_ptr<Entity> entityCamera = core->addEntity();
   std::shared_ptr<Camera> camera = entityCamera->addComponent<Camera>();
   std::shared_ptr<Player> p = entityCamera->addComponent<Player>();
-  entityCamera->getTransform()->setPosition(glm::vec3(0, 4, 10));
+  entityCamera->getTransform()->setPosition(vec3(0, 3, 10));
 
-  entityCat->getTransform()->setPosition(glm::vec3(0, 0, -6));
+  entityCat->getTransform()->setPosition(vec3(0, 1.7, -4));
+  entityCat->getTransform()->setScale(vec3(0.7, 0.7, 0.7));
   
   // Start the engine's main loop.
   core->start();
-
-  // triangle->getTransform()->setPosition(...)
-  // triangle->getComponent<Transform>()->setPosition(...)
-  // triangle->getComponent<MeshRenderer>()->setMesh(...)
-
-/*
-  std::shared_ptr<Foo> f = std::make_shared<TestFoo>();
-
-  Foo* f = new TestFoo();
-*/
 
   return 0;
 }

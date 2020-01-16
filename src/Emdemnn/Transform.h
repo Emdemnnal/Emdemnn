@@ -28,41 +28,58 @@ public:
   
   /// The setPosition() function.
   /**
-   * This function is what is called on an entity to change its position in the world.
+   * This function is what is called on an entity to set its initial position in the world.
    * \param position is the only argument, which takes a vec3 to change the entity's Position.
    */
   void setPosition(glm::vec3 position);
   
   /// The setRotation() function.
   /**
-   * This function is what is called on an entity to change its rotation in the world.
+   * This function is what is called on an entity to change its intial rotation in the world.
    * \param rotation is the only argument, which takes a vec3 to change the entity's Rotation.
    */
   void setRotation(glm::vec3 rotation);
   
   /// The setScale() function.
   /**
-   * This function is what is called on an entity to change its scale or size in the world.
+   * This function is what is called on an entity to change its initial scale or size in the world.
    * \param scale is the only argument, which takes a vec3 to change the entity's Scale.
    */
   void setScale(glm::vec3 scale);
   
-  // Relative to origin
+  /// The translate() function.
+  /**
+   * This function is what is called on an entity to move or translate its position in the world by adding a new vector.
+   * This creates a new identity matrix and multiplies on the xyz-axis of rotation to create a rotation matrix.
+   * This rotation matrix is then used on the passed vec3 so that the entity moves based on its orientation.
+   * \param amount is the only argument, which takes a vec3 to change the entity's Position.
+   */
   void translate(glm::vec3 amount);
+  
+  /// The rotate() function.
+  /**
+   * This function is what is called on an entity to rotate its orientation in the world by adding a new vector.
+   * This simply adds the passed in vec3 and adds it to the current vector that represents the enitity's orientation.
+   * \param amount is the only argument, which takes a vec3 to change the entity's Rotation.
+   */
   void rotate(glm::vec3 amount);
+  
+  /// The scale() function.
+  /**
+   * This function is what is called on an entity to change its scale or size in the world by adding a new vector.
+   * This simply adds the passed in vec3 and adds it to the current vector that represents the enitity's scale.
+   * \param amount is the only argument, which takes a vec3 to change the entity's Scale.
+   */
   void scale(glm::vec3 amount);
   
-  // Relative to objects direction
-  // void move(glm::vec3 amount);
-  
-  /// The getPosition() function.
+  /// This is the function that is called to access the Entity's current Position.
   /**
    * This function is what called to return the position of an entity in the world.
    * \return The Position of the Entity.
    */
   glm::vec3 getPosition();
   
-  /// The getModel() function which returns a model matrix.
+  /// This is the function that is called to return a model matrix.
   /**
    * This function is what is called to return a model matrix.
    * This function first creates an identity matrix.

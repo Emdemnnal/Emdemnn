@@ -128,18 +128,18 @@ void Core::start()
 		// Clear the keys for they have been released.
 	    for(std::vector<int>::iterator it = keyboard->keys.begin(); it != keyboard->keys.end();)
 		{
-		  if(*it == event.key.keysym.sym)
-		  {
-			// Remove element from that vector, use returned iterator.
-		    it = keyboard->keys.erase(it);
-		  }
-		  else
-		  {
-			// Iterates only when nothing is there to be deleted.
-		    it++;
-		  }
-		}
-	  }
+          if(*it == event.key.keysym.sym)
+          {
+            // Remove element from that vector, use returned iterator.
+            it = keyboard->keys.erase(it);
+          }
+          else
+          {
+            // Iterates only when nothing is there to be deleted.
+            it++;
+          }
+        }
+      }
     }
 	
     for(std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
@@ -147,40 +147,40 @@ void Core::start()
       (*it)->tick(); 
     }
     
-	// Clear the pressedKeys for are only valid that frame.
-	for(std::vector<int>::iterator it = keyboard->pressedKeys.begin(); it != keyboard->pressedKeys.end();)
+    // Clear the pressedKeys for are only valid that frame.
+    for(std::vector<int>::iterator it = keyboard->pressedKeys.begin(); it != keyboard->pressedKeys.end();)
     {
       if(*it == event.key.keysym.sym)
-	  {
-	    // Remove element from that vector, use returned iterator.
-		it = keyboard->pressedKeys.erase(it);
-	  }
-	  else
-	  {
-	    // Iterates only when nothing is there to be deleted.
-	    it++;
-	  }
-	}
+      {
+        // Remove element from that vector, use returned iterator.
+        it = keyboard->pressedKeys.erase(it);
+      }
+      else
+      {
+        // Iterates only when nothing is there to be deleted.
+        it++;
+      }
+    }
 	
-	// Clear the releasedKeys for are only valid that frame.
-	for(std::vector<int>::iterator it = keyboard->releasedKeys.begin(); it != keyboard->releasedKeys.end();)
+    // Clear the releasedKeys for are only valid that frame.
+    for(std::vector<int>::iterator it = keyboard->releasedKeys.begin(); it != keyboard->releasedKeys.end();)
     {
       if(*it == event.key.keysym.sym)
-	  {
-	    // Remove element from that vector, use returned iterator.
-		it = keyboard->releasedKeys.erase(it);
-	  }
-	  else
-	  {
-	    // Iterates only when nothing is there to be deleted.
-	    it++;
-	  }
-	}
+      {
+        // Remove element from that vector, use returned iterator.
+        it = keyboard->releasedKeys.erase(it);
+        }
+      else
+      {
+        // Iterates only when nothing is there to be deleted.
+        it++;
+      }
+    }
 
     //keyboard->pressedKeys.clear();
     //keyboard->releasedKeys.clear();
 	
-    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+    glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     for(std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)

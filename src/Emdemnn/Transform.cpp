@@ -43,7 +43,7 @@ void Transform::rotate(glm::vec3 amount)
 
 void Transform::scale(glm::vec3 amount)
 {
-  Scale = amount;
+  Scale += amount;
 }
 
 glm::vec3 Transform::getPosition()

@@ -9,11 +9,6 @@
 
 namespace Emdemnn
 {
-void MeshRenderer::onInit()
-{
-  
-}
-
 void MeshRenderer::onDisplay()
 {
   mesh->model->setTexture("u_Texture", material->texture);
