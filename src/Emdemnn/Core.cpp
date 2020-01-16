@@ -3,6 +3,7 @@
 #include "Transform.h"
 #include "Resources.h"
 #include "Camera.h"
+#include "Keyboard.h"
 
 #include <GL/glew.h>
 
@@ -24,6 +25,8 @@ std::shared_ptr<Core> Core::initialize()
   
   // Initialize Resources.
   core->resources = std::make_shared<Resources>();
+  // Initialize Keyboard.
+  //core->keyboard = std::make_shared<Keyboard>();
   // Sets resources' core weak_ptr to core's self.
   core->resources->core = core->self;
   
@@ -112,20 +115,68 @@ void Core::start()
       }
 	  else if(event.type == SDL_KEYDOWN)
 	  {
-            // add key int to keyboard class
-            // keyboard->keys.push_back(event.key.keysym.sym);
+        // Add keys int to Keyboard class.
+        keyboard->keys.push_back(event.key.keysym.sym);
+		// Add pressedKeys int to Keyboard class.
+		keyboard->pressedKeys.push_back(event.key.keysym.sym);
 	  }
 	  else if(event.type == SDL_KEYUP)
 	  {
-	    // remove key from keyboard
+	    // Add releasedKeys int to Keyboard class.
+		keyboard->releasedKeys.push_back(event.key.keysym.sym);
+		
+		// Clear the keys for they have been released.
+	    for(std::vector<int>::iterator it = keyboard->keys.begin(); it != keyboard->keys.end();)
+		{
+		  if(*it == event.key.keysym.sym)
+		  {
+			// Remove element from that vector, use returned iterator.
+		    it = keyboard->keys.erase(it);
+		  }
+		  else
+		  {
+			// Iterates only when nothing is there to be deleted.
+		    it++;
+		  }
+		}
 	  }
     }
-    
+	
     for(std::list<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
     {
       (*it)->tick(); 
     }
-
+    
+	// Clear the pressedKeys for are only valid that frame.
+	for(std::vector<int>::iterator it = keyboard->pressedKeys.begin(); it != keyboard->pressedKeys.end();)
+    {
+      if(*it == event.key.keysym.sym)
+	  {
+	    // Remove element from that vector, use returned iterator.
+		it = keyboard->pressedKeys.erase(it);
+	  }
+	  else
+	  {
+	    // Iterates only when nothing is there to be deleted.
+	    it++;
+	  }
+	}
+	
+	// Clear the releasedKeys for are only valid that frame.
+	for(std::vector<int>::iterator it = keyboard->releasedKeys.begin(); it != keyboard->releasedKeys.end();)
+    {
+      if(*it == event.key.keysym.sym)
+	  {
+	    // Remove element from that vector, use returned iterator.
+		it = keyboard->releasedKeys.erase(it);
+	  }
+	  else
+	  {
+	    // Iterates only when nothing is there to be deleted.
+	    it++;
+	  }
+	}
+	
     glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -173,5 +224,10 @@ std::shared_ptr<Context> Core::getContext()
 std::shared_ptr<Camera> Core::getCurrentCamera()
 {
   return cameras.at(0);
+}
+
+std::shared_ptr<Keyboard> Core::getKeyboard()
+{
+  return keyboard;
 }
 }

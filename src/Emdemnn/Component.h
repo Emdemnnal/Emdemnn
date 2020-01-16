@@ -10,6 +10,7 @@ class Core;
 class Entity;
 class Transform;
 class Resources;
+class Keyboard;
 
 /**
  * Shows the basic structure that each component will inherit from.
@@ -73,7 +74,13 @@ public:
    * \return The shared_ptr reference to resources in core.
    */
   std::shared_ptr<Resources> getResources();
-  //std::shared_ptr<Keyboard> getKeyboard(); // getCore()->getKeyboard()
+  
+  /// This is the function that is called to access Keyboard.
+  /**
+   * On use, it allows access to the functionalities of the Keyboard class.
+   * \return The shared_ptr reference to keyboard in core.
+   */
+  std::shared_ptr<Keyboard> getKeyboard();
 };
 }
 #endif

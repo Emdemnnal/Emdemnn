@@ -11,10 +11,10 @@ struct Player : Component
 {
   void Player::onTick()
   {
-    //if(getCore()->getKeyboard()->isKeyPressed(SDLK_W))
-    //{
-    // moveUp
-    //}
+    if(getKeyboard()->isKey(SDLK_W))
+    {
+      getTransform()->translate(0, 0, -1);
+    }
   }
 };
 
@@ -50,6 +50,7 @@ int main()
   // Create Camera.
   std::shared_ptr<Entity> entityCamera = core->addEntity();
   std::shared_ptr<Camera> camera = entityCamera->addComponent<Camera>();
+  std::shared_ptr<Player> player = entityCamera->addComponent<Player>();
   entityCamera->getTransform()->setPosition(glm::vec3(0, 4, 10));
 
   entityCat->getTransform()->setPosition(glm::vec3(0, 0, -6));

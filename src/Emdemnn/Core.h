@@ -103,5 +103,12 @@ public:
    * \return The shared_ptr reference to the first element of the cameras vector.
    */
   std::shared_ptr<Camera> getCurrentCamera();
+  
+   /// This is the function that is called to access the Keyboard.
+  /**
+   * On use, it allows one to get the functionalities of the Keyboard class.
+   * \return The shared_ptr reference to keyboard.
+   */
+  std::shared_ptr<Keyboard> getKeyboard();
 };
 }

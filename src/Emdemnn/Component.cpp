@@ -1,6 +1,7 @@
 #include "Component.h"
 #include "Entity.h"
 #include "Core.h"
+#include "Keyboard.h"
 
 namespace Emdemnn
 {
@@ -37,5 +38,10 @@ std::shared_ptr<Transform> Component::getTransform()
 std::shared_ptr<Resources> Component::getResources()
 {
   return getEntity()->getCore()->getResources();
+}
+
+std::shared_ptr<Keyboard> Component::getKeyboard()
+{
+  return getEntity()->getCore()->getKeyboard();
 }
 }
