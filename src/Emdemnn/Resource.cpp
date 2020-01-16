@@ -5,7 +5,7 @@ namespace Emdemnn
 {
 void Resource::onLoad()
 {
-  std::cout << "Hello file has been loaded!" << std::endl;
+  //std::cout << "Hello file has been loaded!" << std::endl;
 }
 	
 std::shared_ptr<Core> Resource::getCore()

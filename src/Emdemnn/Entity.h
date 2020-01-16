@@ -20,9 +20,9 @@ private:
   
   std::list<std::shared_ptr<Component>> components; ///< List of components that each entity holds.
   
-  std::weak_ptr<Core> core; ///< Reference to core.
-  std::weak_ptr<Entity> self; ///< Reference to self.
-  std::weak_ptr<Transform> transform; ///< Reference to transform. 
+  std::weak_ptr<Core> core; ///< Reference to Core.
+  std::weak_ptr<Entity> self; ///< Reference to Self.
+  std::weak_ptr<Transform> transform; ///< Reference to Transform. 
   
   /// Calls the onTick() function on each component.
   /**
@@ -30,6 +30,7 @@ private:
    * While iterating through this list of components, it calls the onTick() function on each component.
    */
   void tick();
+  
   /// Calls the onDisplay() function on each component.
   /**
    * This display function iterates through each component on the entity's component list.
@@ -45,12 +46,14 @@ public:
    * \return The shared_ptr reference to core.
    */
   std::shared_ptr<Core> getCore();
+  
   /// This is the function that is called to access Transform.
   /**
    * On use, it allows access to the functionalities of the Transform class.
    * \return The shared_ptr reference to transform.
    */
   std::shared_ptr<Transform> getTransform();
+  
   /// This is the function that is called to access Resources.
   /**
    * On use, it allows access to the functionalities of the Resources class.
@@ -79,6 +82,7 @@ public:
      
     throw Exception("Doesn't Exist");
   }
+  
   /// This is the function that is called to add a component.
   /**
    * On use, it auto creates an object of the added component type and pushes it back to the list of components each entity keeps.
@@ -100,6 +104,7 @@ public:
   
     return t;
   }
+  
   /// This is the function that is called to add a component accepting one parameter.
   /**
    * On use, it auto creates an object of the added component type and pushes it back to the list of components each entity keeps.
@@ -121,6 +126,7 @@ public:
 
     return t;
   }
+  
   /// This is the function that is called to add a component accepting two parameters.
   /**
    * On use, it auto creates an object of the added component type and pushes it back to the list of components each entity keeps.
@@ -142,6 +148,7 @@ public:
   
     return t;
   }
+  
   /// This is the function that is called to add a component accepting three parameters.
   /**
    * On use, it auto creates an object of the added component type and pushes it back to the list of components each entity keeps.

@@ -5,10 +5,10 @@ namespace Emdemnn
 
 void Transform::onInit()
 {
+  // Initializes the scale to 1 so it doesn't zero-initialize.
   Scale = glm::vec3(1, 1, 1);
 }
 
-//void Transform::setPosition(const glm::vec3& position)
 void Transform::setPosition(glm::vec3 position)
 {
   Position = position;

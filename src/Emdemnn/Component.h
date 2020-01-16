@@ -19,7 +19,7 @@ class Component
 private:
   friend class Emdemnn::Entity; ///< Allows Entity class to access private variables from Component.
   
-  std::weak_ptr<Entity> entity; ///< Reference to entity containing this component.
+  std::weak_ptr<Entity> entity; ///< Reference to Entity containing this component.
 	
   /// A virtual onInit() function.
   /**
@@ -28,6 +28,7 @@ private:
    * As a base class, this function does nothing.
    */
   virtual void onInit();
+  
   /// A virtual onTick() function.
   /**
    * This onTick() function is called when entity iterates through each component calling this function.
@@ -35,6 +36,7 @@ private:
    * As a base class, this function does nothing.
    */
   virtual void onTick();
+  
   /// A virtual onDisplay() function.
   /**
    * This onDisplay() function is called when entity iterates through each component calling this function.
@@ -50,18 +52,21 @@ public:
    * \return The shared_ptr reference to entity.
    */
   std::shared_ptr<Entity> getEntity();
+  
   /// This is the function that is called to access Core.
   /**
    * On use, it allows access to the functionalities of the Core class.
    * \return The shared_ptr reference to core in Entity.
    */
   std::shared_ptr<Core> getCore();
+  
   /// This is the function that is called to access Transform.
   /**
    * On use, it allows access to the functionalities of the Transform class.
    * \return The shared_ptr reference to transform in Entity.
    */
   std::shared_ptr<Transform> getTransform();
+  
   /// This is the function that is called to access Resources.
   /**
    * On use, it allows access to the functionalities of the Resources class.

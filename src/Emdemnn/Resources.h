@@ -7,19 +7,33 @@ namespace Emdemnn
 class Resource;
 class Core;
 
+/**
+ * Shows the structure oh how each resource can be added to resources.
+ */
 class Resources
 {
 private:
-  // Allows Core class to access private variables from Resources.
-  friend class Emdemnn::Core;
-  std::list<std::shared_ptr<Resource>> resources;
+  friend class Emdemnn::Core; ///< Allows Core class to access private variables from Resources.
+  std::list<std::shared_ptr<Resource>> resources; ///< List of resource types that resources can hold.
   
-  std::weak_ptr<Core> core;
-  std::weak_ptr<Resources> self;
+  std::weak_ptr<Core> core; ///< Reference to Core.
+  std::weak_ptr<Resources> self; ///< Referebce to Self.
 
 public:
+  /// This is the function that is called to access Core.
+  /**
+   * On use, it allows access to the functionalities of the Core class.
+   * \return The shared_ptr reference to core in Entity.
+   */
   std::shared_ptr<Core> getCore();
 
+  /// This is the function that is called to load a resource accepting one parameter.
+  /**
+   * On use, it auto creates an object of the added resource type and pushes it back to the list of resources.
+   * It also sets the reference on that resource, such as references to core and resources.
+   * It also calls the onLoad function on the added resource.
+   * \return The resource type object.
+   */
   template <typename T>
   std::shared_ptr<T> load(std::string path)
   {
@@ -37,6 +51,13 @@ public:
 	return t;
   }
   
+  /// This is the function that is called to load a resource accepting two parameters.
+  /**
+   * On use, it auto creates an object of the added resource type and pushes it back to the list of resources.
+   * It also sets the reference on that resource, such as references to core and resources.
+   * It also calls the onLoad function on the added resource.
+   * \return The resource type object.
+   */
   template <typename T, typename A>
   std::shared_ptr<T> load(A path, A shaderPath)
   {
