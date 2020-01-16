@@ -26,7 +26,7 @@ std::shared_ptr<Core> Core::initialize()
   // Initialize Resources.
   core->resources = std::make_shared<Resources>();
   // Initialize Keyboard.
-  //core->keyboard = std::make_shared<Keyboard>();
+  core->keyboard = std::make_shared<Keyboard>();
   // Sets resources' core weak_ptr to core's self.
   core->resources->core = core->self;
   
@@ -176,6 +176,9 @@ void Core::start()
 	    it++;
 	  }
 	}
+
+    //keyboard->pressedKeys.clear();
+    //keyboard->releasedKeys.clear();
 	
     glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

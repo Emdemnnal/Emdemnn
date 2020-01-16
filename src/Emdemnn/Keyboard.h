@@ -3,6 +3,10 @@
 
 #include "Component.h"
 
+#include <SDL2/SDL.h>
+
+#define EM_W SDLK_w
+
 namespace Emdemnn
 {
 class Keyboard : public Component
@@ -17,6 +21,6 @@ private:
 public:
   bool isKey(int key);
   bool isKeyPressed(int key);
-  bool iskeyReleased(int key);
+  bool isKeyReleased(int key);
 };
 }

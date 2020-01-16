@@ -22,7 +22,7 @@ class Core;
 class Resource
 {
 private:
-  friend class Emdemnn::Resources ///< Allows Resources class to access private variables from Resource.
+  friend class Emdemnn::Resources; ///< Allows Resources class to access private variables from Resource.
   
   std::weak_ptr<Core> core; ///< Reference to Core.
   std::weak_ptr<Resources> resources; ///< Reference to Resources.

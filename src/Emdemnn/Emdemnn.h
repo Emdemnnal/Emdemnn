@@ -10,6 +10,7 @@
 
 #include "MeshRenderer.h"
 
+#include "Keyboard.h"
 #include "Resources.h"
 #include "Model.h"
 #include "Material.h"

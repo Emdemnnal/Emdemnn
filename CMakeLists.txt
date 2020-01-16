@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.6)
 project(Emdemnn)
 
-#add_definitions(-DGLM_FORCE_CTOR_INIT)
+add_definitions(-DGLM_FORCE_CTOR_INIT)
 
 include_directories(
   src
@@ -47,6 +47,7 @@ add_library(Emdemnn
   src/Emdemnn/Model.cpp
   src/Emdemnn/Material.h
   src/Emdemnn/Material.cpp
+  src/Emdemnn/Keyboard.cpp
   src/Emdemnn/stb_image.h
 )
 

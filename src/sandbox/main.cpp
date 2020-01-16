@@ -9,11 +9,12 @@ using namespace Emdemnn;
 
 struct Player : Component
 {
-  void Player::onTick()
+  void onTick()
   {
-    if(getKeyboard()->isKey(SDLK_W))
+    if(getKeyboard()->isKey(EM_W))
     {
-      getTransform()->translate(0, 0, -1);
+      getTransform()->rotate(vec3(0, 0.001f, 0));
+      getTransform()->translate(vec3(0, 0, -0.1f));
     }
   }
 };
@@ -50,7 +51,7 @@ int main()
   // Create Camera.
   std::shared_ptr<Entity> entityCamera = core->addEntity();
   std::shared_ptr<Camera> camera = entityCamera->addComponent<Camera>();
-  std::shared_ptr<Player> player = entityCamera->addComponent<Player>();
+  std::shared_ptr<Player> p = entityCamera->addComponent<Player>();
   entityCamera->getTransform()->setPosition(glm::vec3(0, 4, 10));
 
   entityCat->getTransform()->setPosition(glm::vec3(0, 0, -6));
