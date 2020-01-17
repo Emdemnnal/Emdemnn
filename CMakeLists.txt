@@ -47,6 +47,7 @@ add_library(Emdemnn
   src/Emdemnn/Model.cpp
   src/Emdemnn/Material.h
   src/Emdemnn/Material.cpp
+  src/Emdemnn/Keyboard.h
   src/Emdemnn/Keyboard.cpp
   src/Emdemnn/stb_image.h
 )
